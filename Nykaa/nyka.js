@@ -214,3 +214,14 @@ item1.addEventListener("mouseover",visible1);
     document.getElementById("content").style.backgroundColor="#ffff";
     document.getElementById("content").style.color="black";
   }
+
+  // cart btn show
+  var hiddenbtn= document.getElementById("pro_item");
+  hiddenbtn.addEventListener("mouseover",mousein);
+  hiddenbtn.addEventListener("mouseleave",mouseout);
+  function mousein(){
+    document.getElementById("hidden_btn").style.display="block";
+  }
+  function mouseout(){
+    document.getElementById("hidden_btn").style.display="none";
+  }

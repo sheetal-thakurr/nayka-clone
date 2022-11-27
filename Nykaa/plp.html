@@ -4,72 +4,335 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Makeup Products- Buy Cosmetics for Makeup Online in India | Nykaa</title>
-    <link rel="stylesheet" href="/bootstrap-5.0.2-dist/bootstrap-5.0.2-dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/bootstrap-5.0.2-dist/bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js">
+    <title>All The  Makeup Products  Of Your's Choise Are Here - Buy Cosmetics for Makeup Online in India | Nykaa</title>
+
+  <!-- from Nykaa -->
+  <meta name="theme-color" content="#fff"/>
+  <meta name="author" content="NykaaFrontendTeam"/>
+  <link rel="icon" href="//images-static.nykaa.com/media/favicon/default/nykaa_favicon_a.png" type="image/x-icon"/>
+  <!-- <title>Buy Comsmetic Products & Beauty Products Online in India at Best Price | Nykaa</title> -->
+  <!-- from Nykaa -->
+  <meta data-react-helmet="true" name="description" content="Buy cosmetics &amp; beauty products online from Nykaa, the online shopping beauty store. Browse makeup, health products &amp; more from top beauty brands. ✔ free shipping* ✔ Cash on Delivery"/>
+<meta data-react-helmet="true" name="keywords" content="Nykaa, Nyka, Nykaa.com, Nika, Nyyka, Nyka.com, Nykaa online, Nykaa India, buy cosmetics online, cosmetics online, buy beauty products online, beauty products online, buy cosmetics india, buy beauty products india"/>
+<meta data-react-helmet="true" property="og:title" content="Buy Cosmetics Products &amp; Beauty Products Online in India at Best Price | Nykaa"/>
+
+    <!-- <link rel="stylesheet" href="/bootstrap-5.0.2-dist/bootstrap-5.0.2-dist/css/bootstrap.min.css"> -->
+    <!-- <link rel="stylesheet" href="/bootstrap-5.0.2-dist/bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"> -->
+
+    <!-- cdn -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+    <script src="	https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="/Nykaa/style.css">
 
-    <style>
-        body{
-            background-color: rgb(243, 243, 243);  
-        }
-        .menu-tag{
-            /* background-color: rgb(243, 243, 243); */
-            /* border: 2px solid red; */
-            padding-left: 10%;
-            padding-top: 1%;
-        }
-        .menu-head {
-            font-size: 15px;
-            font-weight: 500;
-        }
+
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <script src="/Nykaa/json_data.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+
+
+    <link rel="stylesheet" href="/Nykaa/plp.css">
       
-        .imgtxt{
-            background-color: #cacaca; 
-            margin-left: 70px;
-            margin-bottom: 30px;
-            margin-top: 8px;
+
+
+    <script>
+      var details = [];
+      $(document).ready(function(){
+        var queryString = window.location.search;
+        const product_detail_param = new URLSearchParams(queryString);
+        var cat_id = product_detail_param.get("cat_id");
+        var sub_cat_id = product_detail_param.get("sub_cat_id");
+
+        console.log("cat_id",cat_id,"sub_cat_id",sub_cat_id);
+        productData.forEach(function(value,index){
+          console.log("id",value.cat_id);
+          if(value.cat_id === cat_id && value.sub_cat_id === sub_cat_id){
+          //  console.log("data_store");
+            details.push(value);
+          }
+        });
+
+              // bread crumb------>
+
+
+          for(let i = 0; i < category.length; i++){
+            if(category[i].cat_id == details[0].cat_id){
+              console.log("cat-name", category[i].cat_name);
+              document.getElementById("span_1").innerHTML= category[i].cat_name ;
+            }
+          };
+
+          for(let i = 0; i < subcategory.length; i++){
+            if(subcategory[i].sub_cat_id == details[0].sub_cat_id){
+              console.log("sub-cat-name", subcategory[i].sub_cat_name);
+              document.getElementById("span_2").innerHTML= subcategory[i].sub_cat_name ;
+            }
+          };
+
+        console.log("data",details);
+        details.forEach(function(value,index){
+          document.getElementById("product_item").innerHTML+=`
+          <div class="trending_pro_content col-3 p-0 m-0">
+                  <a target="_blank" href="/Nykaa/pdp.html?product_id=${value.product_id} " >
+
+                    <div class="all_pro" id="pro_item">
+                    <div class="trending_content_box">
+                      <img src="${value.product_img}" alt="Product Image">
+                      <div class="pro_discription_content">
+                        <p class="pro_discription">${value.product_description}</p>
+                      </div>
+                    <div class="price_details">
+                 
+                      <span>MRP: <span id="str_price">${value.product_price}</span></span>
+                      <span id="Rs_style">Rs: ${value.product_discount_price}</span><span id="discount_color">${value.product_discount_percenteage}% Off</span>
+                  
+                    </div>
+                    <div class="product_review d-flex">
+                            <span id="star">☆☆☆☆☆</span>
+                            <span id="review">(${value.product_rating_count})</span>
+                    </div>
+                    
+                    </div>
+                  </div>
+                  </a>
+                </div>`;
+        });
+      });
+
+
+      // color filter
+
+      function color(colorName){
+        let newColorName = colorName;
+        details = [];
+        for(let i =0;i<productData.length; i++){
+          if(newColorName===productData[i]. product_color){
+            details.push(productData[i]);
+          }
         }
-        .imgtxt2{
-            background-color: #cacaca; 
-            margin-right: 70px;
-            margin-bottom: 30px;
-            margin-top: 8px;
+        console.log("color",details);
+        document.getElementById("product_item").innerHTML="";
+        details.forEach(function(value,index){
+          document.getElementById("product_item").innerHTML+=`
+          <div class="trending_pro_content col-3 p-0 m-0">
+                  <a target="_blank" href="/Nykaa/pdp.html?product_id=${value.product_id}">
+
+                    <div class="all_pro" id="pro_item">
+                    <div class="trending_content_box">
+                      <img src="${value.product_img}" alt="Product Image">
+                      <div class="pro_discription_content">
+                        <p class="pro_discription">${value.product_description}</p>
+                      </div>
+                    <div class="price_details">
+                 
+                      <span>MRP: <span id="str_price">${value.product_price}</span></span>
+                      <span id="Rs_style">Rs: ${value.product_discount_price}</span><span id="discount_color">${value.product_discount_percenteage}% Off</span>
+                  
+                    </div>
+                    <div class="product_review d-flex">
+                            <span id="star">☆☆☆☆☆</span>
+                            <span id="review">(${value.product_rating_count})</span>
+                    </div>
+                    
+                    </div>
+                  </div>
+                  </a>
+                </div>`;
+        });
+      };
+   
+  //  brand filter
+   
+  function brand(brandName){
+    let newBrandName = brandName;
+        details = [];
+        for(let i =0;i<productData.length; i++){
+          if(newBrandName===productData[i]. product_brand){
+            details.push(productData[i]);
+          }
         }
-        .imgtxt p {
-            font-size: 16px;
-            text-align: center;
-            /* padding-top: 50px; */
-            padding-left: 20px;
-            padding-right: 20px;
-            font-weight: 400;
-            color: #354A5F;
-        }
-        #p1{
-            font-size: 25px;
-            padding-top: 50px;
-            
-        }
-        #p2{
-            padding-top: 30px;
-            padding-left: 30px;
-            padding-right: 30px;
-        }
-        #p3{
-            padding-top: 30px; 
-        }
-        .imgtxt p a{
-            font-size: 16px;
-            font-weight: 500;
-            color: #fc2779;
-        }
-        #p4{
-            font-size: 26px;
-            font-weight: 700;
-            text-align: center;
-            /* padding-left: 45%; */
-        }
-    </style>
+        console.log("brand",details);
+        document.getElementById("product_item").innerHTML="";
+        details.forEach(function(value,index){
+          document.getElementById("product_item").innerHTML+=`
+          <div class="trending_pro_content col-3 p-0 m-0">
+                  <a target="_blank" href="/Nykaa/pdp.html?product_id=${value.product_id}">
+
+                    <div class="all_pro" id="pro_item">
+                    <div class="trending_content_box">
+                      <img src="${value.product_img}" alt="Product Image">
+                      <div class="pro_discription_content">
+                        <p class="pro_discription">${value.product_description}</p>
+                      </div>
+                    <div class="price_details">
+                 
+                      <span>MRP: <span id="str_price">${value.product_price}</span></span>
+                      <span id="Rs_style">Rs: ${value.product_discount_price}</span><span id="discount_color">${value.product_discount_percenteage}% Off</span>
+                  
+                    </div>
+                    <div class="product_review d-flex">
+                            <span id="star">☆☆☆☆☆</span>
+                            <span id="review">(${value.product_rating_count})</span>
+                    </div>
+                    
+                    </div>
+                  </div>
+                  </a>
+                </div>`;
+        });
+  }
+ 
+//  rate filter properly working
+
+  function rate(r1,r2) {
+    let  rate1 = parseInt (r1);
+    let rate2 = parseInt (r2);
+
+    if(parseInt(rate1) < parseInt(rate2)){
+      details = [];
+    for (let i = 0; i < productData.length; i++) {
+      // console.log("price",productData[i].product_rating);
+      if ( parseInt(rate1) == parseInt(productData[i].product_rating) && parseInt(rate2) > parseInt(productData[i]. product_rating)) {
+        details.push(productData[i]);
+      }
+     
+    }
+    console.log("data-array".details);
+    document.getElementById("product_item").innerHTML="";
+    for (let i = 0; i < details.length; i++) {
+      document.getElementById("product_item").innerHTML+=`
+          <div class="trending_pro_content col-3 p-0 m-0">
+                  <a target="_blank" href="/Nykaa/pdp.html?product_id=${details[i].product_id}">
+
+                    <div class="all_pro" id="pro_item">
+                    <div class="trending_content_box">
+                      <img src="${details[i].product_img}" alt="Product Image">
+                      <div class="pro_discription_content">
+                        <p class="pro_discription">${details[i].product_description}</p>
+                      </div>
+                    <div class="price_details">
+                 
+                      <span>MRP: <span id="str_price">${details[i].product_price}</span></span>
+                      <span id="Rs_style">Rs: ${details[i].product_discount_price}</span><span id="discount_color">${details[i].product_discount_percenteage}% Off</span>
+                  
+                    </div>
+                    <div class="product_review d-flex">
+                            <span id="star">☆☆☆☆☆</span>
+                            <span id="review">(${details[i].product_rating_count})</span>
+                    </div>
+                    
+                    </div>
+                  </div>
+                  </a>
+                </div>`;
+      
+    }
+    }
+  };
+
+
+
+ // price filter properly working
+
+  function priceRange(price1,price2) {
+    let  newPrice = parseInt (price1);
+    let newPrice2 = parseInt (price2);
+
+    if(parseInt(newPrice) < parseInt(newPrice2)){
+      details = [];
+    for (let i = 0; i < productData.length; i++) {
+      // console.log("price",productData[i].product_discount_price);
+      if ( parseInt(newPrice) < parseInt(productData[i].product_discount_price) && parseInt(newPrice2) > parseInt(productData[i]. product_discount_price)) {
+        details.push(productData[i]);
+      }
+     
+    }
+    console.log("data-array".details);
+    document.getElementById("product_item").innerHTML="";
+    for (let i = 0; i < details.length; i++) {
+      document.getElementById("product_item").innerHTML+=`
+          <div class="trending_pro_content col-3 p-0 m-0">
+                  <a target="_blank" href="/Nykaa/pdp.html?product_id=${details[i].product_id}">
+
+                    <div class="all_pro" id="pro_item">
+                    <div class="trending_content_box">
+                      <img src="${details[i].product_img}" alt="Product Image">
+                      <div class="pro_discription_content">
+                        <p class="pro_discription">${details[i].product_description}</p>
+                      </div>
+                    <div class="price_details">
+                 
+                      <span>MRP: <span id="str_price">${details[i].product_price}</span></span>
+                      <span id="Rs_style">Rs: ${details[i].product_discount_price}</span><span id="discount_color">${details[i].product_discount_percenteage}% Off</span>
+                  
+                    </div>
+                    <div class="product_review d-flex">
+                            <span id="star">☆☆☆☆☆</span>
+                            <span id="review">(${details[i].product_rating_count})</span>
+                    </div>
+                    
+                    </div>
+                  </div>
+                  </a>
+                </div>`;
+      
+    }
+    }
+  };
+
+//  discount % filter 
+
+function discount(d1,d2) {
+    let  dis = parseInt (d1);
+    let dis2 = parseInt (d2);
+
+    if(parseInt(dis) < parseInt(dis2)){
+      details = [];
+    for (let i = 0; i < productData.length; i++) {
+      // console.log("price",productData[i].product_discount_price);
+      if ( parseInt(dis) < parseInt(productData[i].product_discount_percenteage) && parseInt(dis2) > parseInt(productData[i]. product_discount_percenteage)) {
+        details.push(productData[i]);
+      }
+     
+    }
+    console.log("data-array".details);
+    document.getElementById("product_item").innerHTML="";
+    for (let i = 0; i < details.length; i++) {
+      document.getElementById("product_item").innerHTML+=`
+          <div class="trending_pro_content col-3 p-0 m-0">
+                  <a target="_blank" href="/Nykaa/pdp.html?product_id=${details[i].product_id}">
+
+                    <div class="all_pro" id="pro_item">
+                    <div class="trending_content_box">
+                      <img src="${details[i].product_img}" alt="Product Image">
+                      <div class="pro_discription_content">
+                        <p class="pro_discription">${details[i].product_description}</p>
+                      </div>
+                    <div class="price_details">
+                 
+                      <span>MRP: <span id="str_price">${details[i].product_price}</span></span>
+                      <span id="Rs_style">Rs: ${details[i].product_discount_price}</span><span id="discount_color">${details[i].product_discount_percenteage}% Off</span>
+                  
+                    </div>
+                    <div class="product_review d-flex">
+                            <span id="star">☆☆☆☆☆</span>
+                            <span id="review">(${details[i].product_rating_count})</span>
+                    </div>
+                    
+                    </div>
+                  </div>
+                  </a>
+                </div>`;
+      
+    }
+    }
+  };
+</script>
+
+
+
 </head>
 <body>
 <div class="container-fluid header">
@@ -118,7 +381,7 @@
                 <a href="#">
                     <img src="/Nykaa/image/icone-utilisateur.png"> Account
                 </a>
-                <a href="#"><img src="/Nykaa/image/shopping-cart-black-icon-on-white-background-vector-31701008.jpg"> </a>
+                <a href="/Nykaa/shoppingcart.html"><img src="/Nykaa/image/shopping-cart-black-icon-on-white-background-vector-31701008.jpg"> </a>
             </div>
         </div>
         <div class="row  d-flex ">
@@ -129,7 +392,7 @@
               <div class="hidden-div d-flex ">
                 <div class="hidden-data  ">
                   <ul>
-                    <li><a href="#">Face</a></li>            
+                    <li><a href="/Nykaa/plp.html?cat_id=1&&sub_cat_id=101" target="_blank">Face</a></li>            
                     <li>Concealer</li>
                     <li>Face Primer</li>
                     <li>Foundation</li>
@@ -149,7 +412,7 @@
                 </div>
                 <div class="hidden-data bg-light ">
                   <ul>
-                    <li><a href="#">Eyes</a></li>
+                    <li><a href="/Nykaa/plp.html?cat_id=1&&sub_cat_id=102" target="_blank">Eyes</a></li>
                    
                     <li>Eyeliner</li>
                     <li>Kajal</li>
@@ -176,7 +439,7 @@
                 </div>
                 <div class="hidden-data  ">
                   <ul>
-                    <li><a href="#">Lips</a></li>
+                    <li><a href="/Nykaa/plp.html?cat_id=1&&sub_cat_id=103" target="_blank">Lips</a></li>
                     <li>Lipstic</li>
                     <li>Liquid Lipstic</li>
                     <li>Lip Crayon</li>
@@ -186,7 +449,7 @@
                     <li>Lip Stain</li>
                   </ul>
                   <ul>
-                    <li><a href="#">Nails</a></li>
+                    <li><a href="/Nykaa/plp.html?cat_id=1&&sub_cat_id=104" target="_blank">Nails</a></li>
                     <li>Nail Polish</li>
                     <li>Nail Art Kits</li>
                     <li>Nail Care</li>
@@ -195,7 +458,7 @@
                 </div>
                 <div class="hidden-data  bg-light">
                   <ul>
-                    <li><a href="#">Tools & Brushes</a></li>
+                    <li><a href="/Nykaa/plp.html?cat_id=1&&sub_cat_id=105" target="_blank">Tools & Brushes</a></li>
                     <li>Face Brush</li>
                     <li>Eye Brush</li>
                     <li>Lip BrushBrush Sets</li>
@@ -249,7 +512,7 @@
               <div class="hidden-div d-flex ">
                 <div class="hidden-data ">
                   <ul>
-                    <li><a href ="#">Moisturizer</a></li>
+                    <li><a href ="/Nykaa/plp.html?cat_id=2&&sub_cat_id=106" target="_blank">Moisturizer</a></li>
                     <li>Face Moisturizer</li>
                     <li>Day Cream</li>
                     <li>Night Cream</li>
@@ -258,7 +521,7 @@
                     <li>All Purposr Gels & Cream</li>
                   </ul>
                   <ul>
-                    <li><a href="#">Cleansers</a></li>
+                    <li><a href="/Nykaa/plp.html?cat_id=2&&sub_cat_id=107" target="_blank">Cleansers</a></li>
                     <li>Face Wash Cleansers</li>
                     <li>Miceller Swater</li>
                     <li>Face Wipes</li>
@@ -276,7 +539,7 @@
                     <li>Vitamin C Serum</li>
                   </ul>
                   <ul>
-                    <li><a href="#">Masks</a></li>
+                    <li><a href="/Nykaa/plp.html?cat_id=2&&sub_cat_id=109"target="_blank">Masks</a></li>
                     <li>Sheet Masks</li>
                     <li>Sleepimg Masks</li>
                     <li>Masks & Peels</li>
@@ -291,7 +554,7 @@
                 </div>
                 <div class="hidden-data ">
                   <ul>
-                    <li><a href="#">Body Care</a></li>
+                    <li><a href="/Nykaa/plp.html?cat_id=2&&sub_cat_id=108"target="_blank">Body Care</a></li>
                     <li>Lotions & Cream</li>
                     <li>Body Butter</li>
                     <li>Massage Oils</li>
@@ -312,7 +575,7 @@
                 </div>
                 <div class="hidden-data bg-light">
                   <ul>
-                    <li><a href="#">Neck Creams</a></li>
+                    <li><a href="">Neck Creams</a></li>
                   </ul>
                   <ul>
                     <li><a href="#">Specialised Skincare</a></li>
@@ -322,7 +585,7 @@
                     <li>Facial Peels</li>
                   </ul>
                   <ul>
-                    <li><a href="#">Eye Care</a></li>
+                    <li><a href="/Nykaa/plp.html?cat_id=2&&sub_cat_id=110"target="_blank">Eye Care</a></li>
                     <li>Under Eye Cream & Serum</li>
                     <li>Eye Masks</li>
                   </ul>
@@ -340,7 +603,7 @@
                 </div>
                 <div class="hidden-data ">
                   <ul>
-                    <li><a href="#">Kits & Combos</a></li>
+                    <li><a href="">Kits & Combos</a></li>
                     <li>Facial Kits</li>
                     <li>Combos @ Nykaa</li>
                     <li>Gift Sets</li>
@@ -390,7 +653,7 @@
                 <div class="hidden-div d-flex ">
                   <div class="hidden-data  ">
                     <ul>
-                      <li><a href="#">Hair Care</a></li>
+                      <li><a href="/Nykaa/plp.html?cat_id=3&&sub_cat_id=111" target="_blank">Hair Care</a></li>
                       <li>Shampoo</li>
                       <li>Dry Shampoo</li>
                       <li>Conditioner</li>
@@ -402,7 +665,7 @@
                   </div>
                   <div class="hidden-data  bg-light">
                     <ul>
-                      <li><a href="#">Tools & Accessories</a></li>
+                      <li><a href="/Nykaa/plp.html?cat_id=3&&sub_cat_id=112"target="_blank">Tools & Accessories</a></li>
                       <li>Hair Brushes</li>
                       <li>Hair Combs</li>
                       <li>Dryers & Stylers</li>
@@ -414,14 +677,14 @@
                   </div>
                   <div class="hidden-data">
                     <ul>
-                      <li><a href="#">Hair Styling</a></li>
+                      <li><a href="/Nykaa/plp.html?cat_id=3&&sub_cat_id=113"target="_blank">Hair Styling</a></li>
                       <li>Hair Color</li>
                       <li>Hair Spray</li>
                       <li>Gels & Waxes</li>
                       
                     </ul>
                     <ul>
-                      <li><a href="#">Shop By Hair Type </a></li>
+                      <li><a href="/Nykaa/plp.html?cat_id=3&&sub_cat_id=114"target="_blank">Shop By Hair Type </a></li>
                       <li>Straight</li>
                       <li>Curly & Wavy</li>
                     </ul>
@@ -432,7 +695,7 @@
                   </div>
                   <div class="hidden-data bg-light ">
                     <ul>
-                      <li><a href="#">Shop By Concern</a></li>
+                      <li><a href="/Nykaa/plp.html?cat_id=3&&sub_cat_id=115" target="_blank">Shop By Concern</a></li>
                       <li>Hairfall & Thinning</li>
                       <li>Dandruff</li>
                       <li>Dry & Frizzy Hair</li>
@@ -1362,8 +1625,6 @@
                     <li class="breadcrumb-item active menu-head" aria-current="page">Home</li>
                     <li class="breadcrumb-item active menu-head" aria-current="page"><span id="span_1"></span></li>
                     <li class="breadcrumb-item active menu-head" aria-current="page"><span id="span_2"></span></li>
-                    <li class="breadcrumb-item active menu-head" aria-current="page"><span id="span_3"></span></li>
-                    <li class="breadcrumb-item active menu-head" aria-current="page"><span id="span_4"></span></li>
                   </ol>
                 </nav>
               </div>            
@@ -1387,22 +1648,535 @@
 
         <!-- main page design start here -->
 
-        <div class="row">
-          <div class="col d-flex">
-            <!-- left part -->
-            <div class="leftdiv bg-success">
-              <div id="name">
-                <span></span>
+      <div class="row ">
+        <div class=" col d-flex  ">
+
+          <!-- left part -->
+          <div class="leftdiv ">
+
+            <div class="accordion" id="accordionExample">
+              <div class="accordion-item first">
+                <h2 class="accordion-header" id="headingOne">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                    Sort By: Popularity
+                  </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                   <div  class="d-flex h-div">
+                    <div class="h">Popularity</div>
+                      <div class="  round"></div>
+                   </div>
+                   <div class="d-flex h-div">
+                    <div class="h">Discount</div>
+                      <div class=" round"></div>
+                   </div>
+                   <div class="d-flex h-div">
+                    <div class="h">Name</div>
+                      <div class=" round"></div>
+                   </div>
+                   <div class="d-flex h-div">
+                    <div class="h">Customer Top Rated</div>
+                      <div class=" round"></div>
+                   </div>
+                   <div class="d-flex h-div">
+                    <div class="h">New Arrivals</div>
+                      <div class="round"></div>
+                   </div>
+                   <div class="d-flex h-div">
+                    <div class="h">Price: High To Low</div>
+                      <div class=" round"></div>
+                   </div>
+                   <div class="d-flex h-div">
+                    <div class="h">Price: High To Low</div>
+                      <div class=" round"></div>
+                   </div>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                   Category
+                  </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                   <div class="d-flex h-div">
+                    <div class="h">Blush  626</div>
+                      <div class="square"></div>
+                   </div>
+                   <div class="d-flex h-div">
+                    <div class="h">Foundation 575</div>
+                      <div class="square"></div>
+                   </div>
+                   <div class="d-flex h-div">
+                    <div class="h">Foundation 575</div>
+                      <div class="square"></div>
+                   </div>
+                   <div class="d-flex h-div">
+                    <div class="h">Highlighters 565</div>
+                      <div class="square"></div>
+                   </div>
+                   <div class="d-flex h-div">
+                    <div class="h">Concealer 413</div>
+                      <div class="square"></div>
+                   </div>
+                   <div class="d-flex h-div">
+                    <div class="h">Face Primer 366</div>
+                      <div class="square"></div>
+                   </div>
+                   <div class="d-flex h-div">
+                    <div class="h">Compact 362</div>
+                      <div class="square"></div>
+                   </div>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingThree">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    Brand
+                  </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <div class="d-flex h-div" onclick="brand('Blue Heaven')">
+                      <div class="h">Blue Heaven</div>
+                        <div class="square"></div>
+                     </div>
+                    <div class="d-flex h-div" onclick="brand('Nykaa')">
+                      <div class="h">Nykaa</div>
+                        <div class="square"></div>
+                     </div>
+                     <div class="d-flex h-div" onclick="brand('Nivea')">
+                      <div class="h">Nivea</div>
+                        <div class="square"></div>
+                     </div>
+                     <div class="d-flex h-div" onclick="brand('Maybelline')">
+                      <div class="h">Maybelline</div>
+                        <div class="square"></div>
+                     </div>
+                     <div class="d-flex h-div" onclick="brand('Lakme')">
+                      <div class="h">Lakme</div>
+                        <div class="square"></div>
+                     </div>
+                     
+                     <div class="d-flex h-div" onclick="brand('Olay')">
+                      <div class="h">Olay</div>
+                        <div class="square"></div>
+                     </div>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFour">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                   Price
+                  </button>
+                </h2>
+                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                   <div class="d-flex h-div" onclick="priceRange('0','500')">
+                    <div class="h">Rs. 0 - Rs. 499</div>
+                      <div class="square"></div>
+                   </div>
+                   <div class="d-flex h-div" onclick="priceRange('500','1000')">
+                    <div class="h">Rs. 500 - Rs. 999</div>
+                      <div class="square"></div>
+                   </div>
+                   <div class="d-flex h-div" onclick="priceRange('1000','2000')">
+                    <div class="h">Rs. 1000 - Rs. 1999</div>
+                      <div class="square"></div>
+                   </div>
+                   <div class="d-flex h-div" onclick="priceRange('2000','4000')">
+                    <div class="h">Rs. 2000 - Rs. 3999</div>
+                      <div class="square"></div>
+                   </div>
+                   <div class="d-flex h-div" onclick="priceRange('4000','1000000')">
+                    <div class="h">Rs. 4000 & Above</div>
+                      <div class="square"></div>
+                   </div>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item ">
+                <h2 class="accordion-header" id="headingFive">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                   Discount
+                  </button>
+                </h2>
+                <div id="collapseFive" class="accordion-collapse collapse show" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                   <div  class="d-flex h-div" onclick="discount('1','11')">
+                    <div class="h">1% to 10%</div>
+                      <div class="  round"></div>
+                   </div>
+                   <div class="d-flex h-div" onclick="discount('11','21')">
+                    <div class="h">11% to 20%</div>
+                      <div class=" round"></div>
+                   </div>
+                   <div class="d-flex h-div" onclick="discount('21','31')">
+                    <div class="h">21% to 30%</div>
+                      <div class=" round"></div>
+                   </div>
+                   <div class="d-flex h-div" onclick="discount('31','41')">
+                    <div class="h">31% to 40%</div>
+                      <div class=" round"></div>
+                   </div>
+                   <div class="d-flex h-div" onclick="discount('41','51')">
+                    <div class="h">41% to 50% </div>
+                      <div class="round"></div>
+                   </div>
+                   <div class="d-flex h-div" onclick="discount('51','61')">
+                    <div class="h">51% to 60%</div>
+                      <div class=" round"></div>
+                   </div>
+                   <div class="d-flex h-div" onclick="discount('61','71')">
+                    <div class="h">61% to 70%</div>
+                      <div class=" round"></div>
+                   </div>
+                   <div class="d-flex h-div" onclick="discount('71','100')">
+                    <div class="h"> above to 71%</div>
+                      <div class=" round"></div>
+                   </div>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item ">
+                <h2 class="accordion-header" id="headingSix">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                  Color
+                  </button>
+                </h2>
+                <div id="collapseSix" class="accordion-collapse collapse show" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                   <div  class="d-flex h-div " onclick="color('Red')">
+                    <div class=" colorbtn bg-danger" ></div>
+                    <div class="h">Red</div>
+                      <div class="  round"></div>
+                   </div>
+                   <div class="d-flex h-div" onclick="color('Black')">
+                    <div class="  colorbtn " id="Black"></div>
+                    <div class="h">Black</div>
+                      <div class=" round"></div>
+                   </div>
+                   <div class="d-flex h-div" onclick="color('golden')">
+                    <div class="  colorbtn " id="Golden"></div>
+                    <div class="h">Golden</div>
+                      <div class=" round"></div>
+                   </div>
+                   <div class="d-flex h-div" onclick="color('brown')">
+                    <div class=" colorbtn" id="Brown"></div>
+                    <div class="h">Brown</div>
+                      <div class=" round"></div>
+                   </div>
+                  
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item ">
+                <h2 class="accordion-header" id="headingSeven">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                    Avg Customer Rating
+                  </button>
+                </h2>
+                <div id="collapseSeven" class="accordion-collapse collapse show" aria-labelledby="headingSeven" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                   <div  class="d-flex h-div" onclick="rate('1','2')">
+                    <div class="h">1 Star and Above</div>
+                      <div class="  round"></div>
+                   </div>
+                   <div class="d-flex h-div" onclick="rate('2','3')">
+                    <div class="h">2 Star and Above</div>
+                      <div class=" round"></div>
+                   </div>
+                   <div class="d-flex h-div"  onclick="rate('3','4')">
+                    <div class="h">3 Star and Above</div>
+                      <div class=" round"></div>
+                   </div>
+                   <div class="d-flex h-div"  onclick="rate('4','6')">
+                    <div class="h">4 Star and Above</div>
+                      <div class=" round"></div>
+                   </div>
+                  
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingEight">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                    Preference
+                  </button>
+                </h2>
+                <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingEight" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <div class="d-flex h-div">
+                      <div class="h">Cruelty-Free 1111</div>
+                        <div class="square"></div>
+                     </div>
+                    <div class="d-flex h-div">
+                      <div class="h">Paraben Free 846</div>
+                        <div class="square"></div>
+                     </div>
+                     <div class="d-flex h-div">
+                      <div class="h">Vegan 728</div>
+                        <div class="square"></div>
+                     </div>
+                     <div class="d-flex h-div">
+                      <div class="h">Dermatologically Tested 544</div>
+                        <div class="square"></div>
+                     </div>
+                     <div class="d-flex h-div">
+                      <div class="h">Vitamin E 432</div>
+                        <div class="square"></div>
+                     </div>
+                     
+                     <div class="d-flex h-div">
+                      <div class="h">Natural   291</div>
+                        <div class="square"></div>
+                     </div>
+                     <div class="d-flex h-div">
+                      <div class="h">Sulphate Free   277</div>
+                        <div class="square"></div>
+                     </div>
+                     <div class="d-flex h-div">
+                      <div class="h">Waterproof 266</div>
+                        <div class="square"></div>
+                     </div>
+                     <div class="d-flex h-div">
+                      <div class="h">Oil-Free 251</div>
+                        <div class="square"></div>
+                     </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingNine">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
+                    Concern
+                  </button>
+                </h2>
+                <div id="collapseNine" class="accordion-collapse collapse" aria-labelledby="headingNine" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <div class="d-flex h-div">
+                      <div class="h">Dark Spots/Pigmentation</div>
+                        <div class="square"></div>
+                     </div>
+                    <div class="d-flex h-div">
+                      <div class="h">Pores/Blackheads/Whiteheads </div>
+                        <div class="square"></div>
+                     </div>
+                     <div class="d-flex h-div">
+                      <div class="h">Dryness</div>
+                        <div class="square"></div>
+                     </div>
+                     <div class="d-flex h-div">
+                      <div class="h">Sun Protection</div>
+                        <div class="square"></div>
+                     </div>
+                     <div class="d-flex h-div">
+                      <div class="h">Oil Control  </div>
+                        <div class="square"></div>
+                     </div>
+                     
+                     <div class="d-flex h-div">
+                      <div class="h">Brightening</div>
+                        <div class="square"></div>
+                     </div>
+                     <div class="d-flex h-div">
+                      <div class="h">Under Eye Concern </div>
+                        <div class="square"></div>
+                     </div>
+                     <div class="d-flex h-div">
+                      <div class="h">Dullness</div>
+                        <div class="square"></div>
+                     </div>
+                     <div class="d-flex h-div">
+                      <div class="h">Fine Lines & Wrinkles</div>
+                        <div class="square"></div>
+                     </div>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTen">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTen" aria-expanded="false" aria-controls="collapseTen">
+                    Coverage
+                  </button>
+                </h2>
+                <div id="collapseTen" class="accordion-collapse collapse" aria-labelledby="headingTen" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                  
+                     <div class="d-flex h-div">
+                      <div class="h">Full Coverage </div>
+                        <div class="square"></div>
+                     </div>
+                     <div class="d-flex h-div">
+                      <div class="h">Medium Coverage </div>
+                        <div class="square"></div>
+                     </div>
+                     <div class="d-flex h-div">
+                      <div class="h">Low Coverag</div>
+                        <div class="square"></div>
+                     </div>
+                     <div class="d-flex h-div">
+                      <div class="h">Sheer</div>
+                        <div class="square"></div>
+                     </div>
+                   
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingEleven">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEleven" aria-expanded="false" aria-controls="collapseEleven">
+                    Skin Tone
+                  </button>
+                </h2>
+                <div id="collapseEleven" class="accordion-collapse collapse" aria-labelledby="headingEleven" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                  
+                     <div class="d-flex h-div">
+                      <div class="h">Medium/Wheatish</div>
+                        <div class="square"></div>
+                     </div>
+                     <div class="d-flex h-div">
+                      <div class="h">Fair/Light</div>
+                        <div class="square"></div>
+                     </div>
+                     <div class="d-flex h-div">
+                      <div class="h">Dusky/Dark</div>
+                        <div class="square"></div>
+                     </div>
+                   
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwelve">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwelve" aria-expanded="false" aria-controls="collapseTwelve">
+                    Conscious
+                  </button>
+                </h2>
+                <div id="collapseTwelve" class="accordion-collapse collapse" aria-labelledby="headingTwelve" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                  
+                     <div class="d-flex h-div">
+                      <div class="h">Cruelty-Free</div>
+                        <div class="square"></div>
+                     </div>
+                     <div class="d-flex h-div">
+                      <div class="h">Vegan</div>
+                        <div class="square"></div>
+                     </div>
+                     <div class="d-flex h-div">
+                      <div class="h">Clean</div>
+                        <div class="square"></div>
+                     </div>
+                   
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingThirteen">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThirteen" aria-expanded="false" aria-controls="collapseThirteen">
+                    Pack Size
+                  </button>
+                </h2>
+                <div id="collapseThirteen" class="accordion-collapse collapse" aria-labelledby="headingThirteen" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                  
+                     <div class="d-flex h-div">
+                      <div class="h">Single 294</div>
+                        <div class="square"></div>
+                     </div>
+                     <div class="d-flex h-div">
+                      <div class="h">Pack 92</div>
+                        <div class="square"></div>
+                     </div>
+                   
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingForteen">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseForteen" aria-expanded="false" aria-controls="collapseForteen">
+                    SPF
+                  </button>
+                </h2>
+                <div id="collapseForteen" class="accordion-collapse collapse" aria-labelledby="headingForteen" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                  
+                     <div class="d-flex h-div">
+                      <div class="h">Between 15-30</div>
+                        <div class="square"></div>
+                     </div>
+                     <div class="d-flex h-div">
+                      <div class="h">Above 30</div>
+                        <div class="square"></div>
+                     </div>
+                     <div class="d-flex h-div">
+                      <div class="h">Below 15</div>
+                        <div class="square"></div>
+                     </div>
+                     <div class="d-flex h-div">
+                      <div class="h">None 12</div>
+                        <div class="square"></div>
+                     </div>
+                   
+                  </div>
+                </div>
               </div>
             </div>
+          </div>
 
+          <!-- right part -->
+            <div class="rightdiv">
+              <div id="product_item">
+                
+                <!-- <div class="trending_pro_content col-3 p-0 m-0">
+                  <a href="/Nykaa/pdp.html">
 
-            <!-- right part -->
-            <div class="d-flex rightdiv bg-danger">
+                    <div class="all_pro" id="pro_item">
+                    <div class="trending_content_box">
+                      <img src="/Nykaa/image/edt3.avif" alt="Product Image">
+                      <div class="pro_discription_content">
+                        <p class="pro_discription">Nykaa All Day Matte Long Wear Liquid Foundation With Pump - Petal 04</p>
+                      </div>
+                    <div class="price_details">
+                 
+                      <span>MRP: <span id="str_price">500</span></span>
+                      <span id="Rs_style">Rs: 400</span><span id="discount_color">35% Off</span>
+                  
+                    </div>
+                    <div class="product_review d-flex">
+                    
+                            <span id="star">☆☆☆☆☆</span>
+                            <span id="review">(4534)</span>
+                    </div>
+                    
+                    <div id="hidden_btn">
+                      <button class="btn one_btn" type="button">💗</button>
+                      <button class="btn two_btn" type="button">Preview Shade</button>
+                    </div>
+                    </div>
+                  </div>
+                  </a>
+                </div> -->
+
+              </div>
 
             </div>
-          </div>
         </div>
+      </div>
+
+
+    
+      
+
+
           <!-- all footer part -->
   
          <div>
@@ -1434,8 +2208,8 @@
             <div class="col-2">
               <ul>
                 <li><a href="/Nykaa/nyka.html">NYKAA</a></li>
-                <li><a href="/Nykaa/careerAtNykaa.html">Who are we?</a></li>
-                <li><a href="/Nykaa/careerAtNykaa.html">Careees</a></li>
+                <li><a href="/Nykaa/careerAtNykaa.html" target="_blank">Who are we?</a></li>
+                <li><a href="/Nykaa/careerAtNykaa.html" target="_blank">Careees</a></li>
                 <li><a href="#">Authenticity</a></li>
                 <li><a href="#">Press</a></li>
                 <li><a href="#">Testimonals</a></li>
@@ -1445,11 +2219,11 @@
                
               </ul>
             </div>
-            <div class="col-2">
+            <div class="col-2"> 
               <ul>
-                <li><a href="#">Help</a></li>
-                <li><a href="#">Contact us</a></li>
-                <li><a href="#">Frequently asked questions</a></li>
+                <li><a href="/Nykaa/contact.html" target="_blank">Help</a></li>
+                <li><a href="/Nykaa/contact.html" target="_blank">Contact us</a></li>
+                <li><a href="/Nykaa/contact.html" target="_blank">Frequently asked questions</a></li>
                 <li><a href="#">store Locator</a></li>
                 <li><a href="#">Cancellation & Return</a></li>
                 <li><a href="#">Shipping & Delivery</a></li>

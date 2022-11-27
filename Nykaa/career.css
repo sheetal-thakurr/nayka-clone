@@ -108,3 +108,50 @@ color: #ffffff;
 display: inline-block;
 text-decoration: none;
 }
+.award h3{
+ text-align: center;
+ text-decoration: underline;
+ text-decoration-color: #E80071;
+ text-decoration-thickness: 3px;
+}
+.a-heading {
+    justify-content: center;
+    align-items: center;
+    font-size: 17px;
+    font-weight: 700;
+    /* border-bottom: 3px solid #333; */
+}
+.a-heading div{
+    margin: 8px;
+    cursor: pointer;
+}
+.a-heading div:hover{
+    text-decoration: underline;
+    text-decoration-color: #E80071;
+    text-decoration-thickness: 3px;
+}
+.award-img{
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+
+
+}
+.award-img div{
+    margin: 12px;
+    border: 1px solid #e4dfdf;
+}
+.award-img div p{
+    text-align: center;
+}
+.a-txt-div {
+    border: 2px solid gold;
+    /* position: relative; */
+    text-align: center;
+    margin-left:  90px;
+    width: 50%;
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+
+}
