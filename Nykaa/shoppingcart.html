@@ -25,6 +25,8 @@
     <link rel="stylesheet" href="/bootstrap-5.0.2-dist/bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js">
     <link rel="stylesheet" href="/Nykaa/style.css">
 
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+
     <style>
         .main-box{
             background-color:rgb(240, 206, 218);
@@ -32,22 +34,34 @@
         .pro_div {
             margin: 5%;
             border-radius: 5px;
-            background-color:rgb(239, 178, 201);
-            border: 2px solid rgb(245, 156, 187);
+
+        }
+        #product_item_detail{
+          width: 100%;
+          height: 90%;
+        }
+        #pro_img{
+          margin: 10px;
+          background-color:rgb(239, 178, 201);
+          border: 2px solid rgb(245, 156, 187);
         }
 
         #pro_img img {
-            margin: 50px 20px;
+            margin: 35px 50px;
             height: 170px;
-            width: 120px;
+            width: 150px;
         }
 
+        #all_detail{
+          margin: 15px 20px 15px 40px;
+        }
         .about p {
             padding-top: 20px;
             padding-left: 40px;
+            padding-bottom: 15px;
             /* text-align: center; */
             font-size: 16px;
-            font-weight: 500;
+            font-weight: 700;
             color: rgb(57, 56, 56);
         }
 
@@ -58,22 +72,29 @@
         }
 
         #pro_mrp {
-            padding-left: 60%;
+            padding-left: 22px;
         }
 
      .spn {
-            padding-left: 66%;
+            padding-left: 80px;
         }
 
         #last-spn {
-            padding-left: 69%;
+          padding-left: 115px;
+        }
+        #f_pay{
+          padding-left: 135px;
         }
         #right{
             margin-top: 16%;
             margin-left: -20%;
+           ;
         }
         .right-para{
             padding-left: 30px;
+            background-color:rgb(239, 178, 201);
+            border: 2px solid rgb(245, 156, 187);
+           
         }
         #r-txt p{
             font-size: 18px;
@@ -81,21 +102,32 @@
         
         }
         .r-spn{
-            padding-left: 40%;
+            padding-left: 15%;
         }
         .r-second{
+          border-radius: 5px;
             font-weight: 600;
          margin-right: 20px;
          color: aliceblue;
             background-color:  rgb(239, 50, 116);
         }
 
+        #shop{
+          text-align: center;
+          padding: 8px;
+        }
+      
+        #coupon strong{
+          padding-left: 80px;
+          font-size: 18px;
+        }
         #coupon span{
             color: rgb(239, 50, 116);
             font-weight: 500;
+            padding-left: 30px;
         }
         #proceed button{
-            margin: 16px 30px;
+            margin: 14px 30px;
             width: 70%;
             padding: 10px;
             font-size: 20px;
@@ -109,6 +141,43 @@
         }
     </style>
 
+    <script>
+      $(document).ready(function(){
+        var local_data =JSON.parse(localStorage.getItem("cart_data")) ;
+        var total_price = 0;
+        var product_count = 0;
+
+        local_data.forEach(element => {
+          total_price += parseInt(element.product_price);
+          product_count += 1;
+        });
+
+       
+     
+        if(local_data !== null){
+          local_data.forEach(element => {
+            document.getElementById("product_item_detail").innerHTML+= `
+            <div id="pro_img" class="d-flex about">
+            <div>
+                            <img src="${element.product_img}">
+                        </div>
+                      <div id="all_detail">
+                       
+                            <p id="pro_about">  ${element.product_description}
+                               <br><strong>   Bag MRP (1 items)- <span id="pro_mrp">Rs. ${element.product_price}</span>
+                                <br> Bag Discount- <span class="discount spn">${element.product_discount_percenteage} %</span>
+                                <br> Shipping- <span id="last-spn">Free Shipping</span>
+                                 <br> You Pay <span id="f_pay">Rs  ${element.product_discount_price}</span></strong>
+                            </p>
+                            </div>
+                        </div> `;
+          });
+        }
+        document.getElementById("item_count").innerHTML+= `${product_count}`;
+        document.getElementById("total_pay").innerHTML  = `Rs ${total_price}`;
+
+      })
+    </script>
 
 </head>
 
@@ -167,7 +236,7 @@
                 <a href="#">
                     <img src="/Nykaa/image/icone-utilisateur.png"> Account
                 </a>
-                <a href="/Nykaa/shoppingcart.html"><img src="/Nykaa/image/shopping-cart-black-icon-on-white-background-vector-31701008.jpg">
+                <a href="/Nykaa/shoppingcart.html"><img src="/Nykaa/image/shopping-cart-black-icon-on-white-background-vector-31701008.jpg"><span id="item_count"></span>
                 </a>
             </div>
         </div>
@@ -179,7 +248,7 @@
               <div class="hidden-div d-flex ">
                 <div class="hidden-data  ">
                   <ul>
-                    <li><a href="/Nykaa/plp.html?cat_id=1&&sub_cat_id=101" target="_blank">Face</a></li>            
+                    <li><a href="/Nykaa/plp.html?cat_id=1&&sub_cat_id=101" target="_blank" style="color:#fc2779 ;">Face</a></li>            
                     <li>Concealer</li>
                     <li>Face Primer</li>
                     <li>Foundation</li>
@@ -199,7 +268,7 @@
                 </div>
                 <div class="hidden-data bg-light ">
                   <ul>
-                    <li><a href="/Nykaa/plp.html?cat_id=1&&sub_cat_id=102" target="_blank">Eyes</a></li>
+                    <li><a href="/Nykaa/plp.html?cat_id=1&&sub_cat_id=102" target="_blank" style="color:#fc2779 ;">Eyes</a></li>
                    
                     <li>Eyeliner</li>
                     <li>Kajal</li>
@@ -226,7 +295,7 @@
                 </div>
                 <div class="hidden-data  ">
                   <ul>
-                    <li><a href="/Nykaa/plp.html?cat_id=1&&sub_cat_id=103" target="_blank">Lips</a></li>
+                    <li><a href="/Nykaa/plp.html?cat_id=1&&sub_cat_id=103" target="_blank" style="color:#fc2779 ;">Lips</a></li>
                     <li>Lipstic</li>
                     <li>Liquid Lipstic</li>
                     <li>Lip Crayon</li>
@@ -236,7 +305,7 @@
                     <li>Lip Stain</li>
                   </ul>
                   <ul>
-                    <li><a href="/Nykaa/plp.html?cat_id=1&&sub_cat_id=104" target="_blank">Nails</a></li>
+                    <li><a href="/Nykaa/plp.html?cat_id=1&&sub_cat_id=104" style="color:#fc2779 ;" target="_blank">Nails</a></li>
                     <li>Nail Polish</li>
                     <li>Nail Art Kits</li>
                     <li>Nail Care</li>
@@ -245,7 +314,7 @@
                 </div>
                 <div class="hidden-data  bg-light">
                   <ul>
-                    <li><a href="/Nykaa/plp.html?cat_id=1&&sub_cat_id=105" target="_blank">Tools & Brushes</a></li>
+                    <li><a href="/Nykaa/plp.html?cat_id=1&&sub_cat_id=105" target="_blank" style="color:#fc2779 ;">Tools & Brushes</a></li>
                     <li>Face Brush</li>
                     <li>Eye Brush</li>
                     <li>Lip BrushBrush Sets</li>
@@ -299,7 +368,7 @@
               <div class="hidden-div d-flex ">
                 <div class="hidden-data ">
                   <ul>
-                    <li><a href ="/Nykaa/plp.html?cat_id=2&&sub_cat_id=106" target="_blank">Moisturizer</a></li>
+                    <li><a href ="/Nykaa/plp.html?cat_id=2&&sub_cat_id=106" style="color:#fc2779 ;" target="_blank">Moisturizer</a></li>
                     <li>Face Moisturizer</li>
                     <li>Day Cream</li>
                     <li>Night Cream</li>
@@ -308,7 +377,7 @@
                     <li>All Purposr Gels & Cream</li>
                   </ul>
                   <ul>
-                    <li><a href="/Nykaa/plp.html?cat_id=2&&sub_cat_id=107" target="_blank">Cleansers</a></li>
+                    <li><a href="/Nykaa/plp.html?cat_id=2&&sub_cat_id=107" style="color:#fc2779 ;" target="_blank">Cleansers</a></li>
                     <li>Face Wash Cleansers</li>
                     <li>Miceller Swater</li>
                     <li>Face Wipes</li>
@@ -326,7 +395,7 @@
                     <li>Vitamin C Serum</li>
                   </ul>
                   <ul>
-                    <li><a href="/Nykaa/plp.html?cat_id=2&&sub_cat_id=109"target="_blank">Masks</a></li>
+                    <li><a href="/Nykaa/plp.html?cat_id=2&&sub_cat_id=109"target="_blank" style="color:#fc2779 ;">Masks</a></li>
                     <li>Sheet Masks</li>
                     <li>Sleepimg Masks</li>
                     <li>Masks & Peels</li>
@@ -341,7 +410,7 @@
                 </div>
                 <div class="hidden-data ">
                   <ul>
-                    <li><a href="/Nykaa/plp.html?cat_id=2&&sub_cat_id=108"target="_blank">Body Care</a></li>
+                    <li><a href="/Nykaa/plp.html?cat_id=2&&sub_cat_id=108" style="color:#fc2779 ;" target="_blank">Body Care</a></li>
                     <li>Lotions & Cream</li>
                     <li>Body Butter</li>
                     <li>Massage Oils</li>
@@ -372,7 +441,7 @@
                     <li>Facial Peels</li>
                   </ul>
                   <ul>
-                    <li><a href="/Nykaa/plp.html?cat_id=2&&sub_cat_id=110"target="_blank">Eye Care</a></li>
+                    <li><a href="/Nykaa/plp.html?cat_id=2&&sub_cat_id=110"target="_blank" style="color:#fc2779 ;">Eye Care</a></li>
                     <li>Under Eye Cream & Serum</li>
                     <li>Eye Masks</li>
                   </ul>
@@ -440,7 +509,7 @@
                 <div class="hidden-div d-flex ">
                   <div class="hidden-data  ">
                     <ul>
-                      <li><a href="/Nykaa/plp.html?cat_id=3&&sub_cat_id=111" target="_blank">Hair Care</a></li>
+                      <li><a href="/Nykaa/plp.html?cat_id=3&&sub_cat_id=111" style="color:#fc2779 ;" target="_blank">Hair Care</a></li>
                       <li>Shampoo</li>
                       <li>Dry Shampoo</li>
                       <li>Conditioner</li>
@@ -452,7 +521,7 @@
                   </div>
                   <div class="hidden-data  bg-light">
                     <ul>
-                      <li><a href="/Nykaa/plp.html?cat_id=3&&sub_cat_id=112"target="_blank">Tools & Accessories</a></li>
+                      <li><a href="/Nykaa/plp.html?cat_id=3&&sub_cat_id=112"target="_blank" style="color:#fc2779 ;">Tools & Accessories</a></li>
                       <li>Hair Brushes</li>
                       <li>Hair Combs</li>
                       <li>Dryers & Stylers</li>
@@ -464,14 +533,14 @@
                   </div>
                   <div class="hidden-data">
                     <ul>
-                      <li><a href="/Nykaa/plp.html?cat_id=3&&sub_cat_id=113"target="_blank">Hair Styling</a></li>
+                      <li><a href="/Nykaa/plp.html?cat_id=3&&sub_cat_id=113" style="color:#fc2779 ;" target="_blank">Hair Styling</a></li>
                       <li>Hair Color</li>
                       <li>Hair Spray</li>
                       <li>Gels & Waxes</li>
                       
                     </ul>
                     <ul>
-                      <li><a href="/Nykaa/plp.html?cat_id=3&&sub_cat_id=114"target="_blank">Shop By Hair Type </a></li>
+                      <li><a href="/Nykaa/plp.html?cat_id=3&&sub_cat_id=114"target="_blank" style="color:#fc2779 ;">Shop By Hair Type </a></li>
                       <li>Straight</li>
                       <li>Curly & Wavy</li>
                     </ul>
@@ -482,7 +551,7 @@
                   </div>
                   <div class="hidden-data bg-light ">
                     <ul>
-                      <li><a href="/Nykaa/plp.html?cat_id=3&&sub_cat_id=115" target="_blank">Shop By Concern</a></li>
+                      <li><a href="/Nykaa/plp.html?cat_id=3&&sub_cat_id=115" style="color:#fc2779 ;" target="_blank">Shop By Concern</a></li>
                       <li>Hairfall & Thinning</li>
                       <li>Dandruff</li>
                       <li>Dry & Frizzy Hair</li>
@@ -1408,26 +1477,9 @@
         <div class="row bg-white">
             <div class="col-9 main-box">
                 <div class="pro_div ">
-
-                 
-                    <div class="d-flex">
-                        <div id="pro_img" class="d-flex">
-                            <img src="/Nykaa/image/g1.avif">
-                        </div>
-
-                        <div class="about">
-                            <p id="pro_about">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda,
-                                molestiae!
-                                <br> <br> <strong>Price Details</strong>
-                                <br> <br> Bag MRP (1 items)- <span id="pro_mrp">Rs. 599</span>
-                                <br> <br> Bag Discount- <span class="discount spn">Rs. 150</span>
-                                <br> <br> Shipping- <span id="last-spn">Free Shipping</span>
-                                <br> <br><strong> You Pay <span id="f_pay">Rs 519</span></strong>
-                            </p>
-                        </div>
+                    <div class="" >
+                      <div id ="product_item_detail"></div>
                     </div>
-               
-
                 </div>
             </div>
            
@@ -1436,14 +1488,15 @@
                 <div class="pro_div ">
                     <div class="right-para">
                         <div id="r-txt" >
-                           <p><strong>You Pay- <span class="discount r-spn" >Rs 519</span></strong></p> 
+                           <p><strong>Your Total  Pay- <span class=" r-spn" id="total_pay" ></span></strong></p> 
                         </div>
 
                         <div class="r-second ">
-                           <p> 🔘You are saving Rs<span class="discount">  150</span> on this order</p>
+                           <!-- <p> 🔘You are saving Rs<span class="discount">  150</span> on this order</p> -->
+                           <p id="shop"> Shopping At Nykaa And Get Discount At Every Products </p>
                            </div>
                         <div id="coupon">
-                            <p><strong>💌Coupons</strong></p>
+                            <p><strong>💌 &nbsp; Coupons</strong></p>
                             <p><span >Apply Now And Save Extra!</span></p>
                         </div>
 

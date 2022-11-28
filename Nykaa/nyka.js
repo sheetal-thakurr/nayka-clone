@@ -11,7 +11,7 @@ var selectId2 = document.getElementById("visiblediv");
 
  selectId.addEventListener("mouseleave",mousel);
  function mousel(){
-    selectId2.style.display="none";  
+    selectId2.style.display="none"; 
  }
 
 
