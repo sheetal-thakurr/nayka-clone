@@ -248,6 +248,7 @@
     </style>
 
 <style>
+ 
   .qa{
     list-style: none;
     border-bottom: 1px sold gray;
@@ -327,13 +328,16 @@
 
       function add_in_cart() {
         console.log("dcdcdc");
+        let quantity = document.getElementById("quantity_Select").value;
         const product_obj = {
           product_id : details[0].product_id,
           product_description : details[0].product_description,
           product_price: details[0].product_price,
           product_discount_price : details[0]. product_discount_price,
           product_discount_percenteage : details[0]. product_discount_percenteage,
-          product_img: details[0].product_img
+          product_img: details[0].product_img,
+          product_quantity: quantity
+
         }
         var local_data =JSON.parse(localStorage.getItem("cart_data")) ;
         var new_obj = local_data === null ? [] : local_data  
@@ -1722,7 +1726,20 @@
                     <div id="rating-star">
                      <span>☆☆☆☆☆</span>
                        <span id="rating"></span>/5  &nbsp; <span ><span id="reviews"></span> ratings & 368 reviews</span>&nbsp; Q&As</div>
-                    <div id="mrp">MRP: &nbsp; Rs. <span id="Rs"></span> &nbsp; Rs. <span id="Real-price"></span>&nbsp;&nbsp; <span id="discount" class="color">% &nbsp; &nbsp; &nbsp;</span><span class="color">Off</span></div>
+                    <div id="mrp">MRP: &nbsp; Rs. <span id="Rs"></span> &nbsp; Rs. <span id="Real-price"></span>&nbsp;&nbsp; <span id="discount" class="color">% &nbsp; &nbsp; &nbsp;</span><span class="color">Off</span>
+                      &nbsp;&nbsp;&nbsp;&nbsp;   <span>Item <select name=""  id="quantity_Select" >
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                      <option value="7">7</option>
+                      <option value="8">8</option>
+                      <option value="9">9</option>
+                      <option value="10">10</option>
+                    </select></span>
+                  </div>
                     <div id="taxes">inclusive of all taxes  </div>
                     <div class="middle-line" id="middle-line" ></div>
                     <!-- add to bag and pincode -->
