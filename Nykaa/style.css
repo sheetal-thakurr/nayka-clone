@@ -8,6 +8,15 @@
  body{
   background-color: rgb(244, 238, 238);
  }
+ .sign_btn{
+  background-color: #fc2779;
+  font-size: 18px;
+  color: #333;
+  font-weight: 700;
+  height: 30px;
+  padding: 4px 8px;
+  border-radius: 6px;
+ }
    .top-row{
        background: url("image/topimg.webp")no-repeat center center/cover ;
        /* position: sticky; */

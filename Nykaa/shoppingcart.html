@@ -191,11 +191,9 @@
         var local_data =JSON.parse(localStorage.getItem("cart_data")) ;
         var total_price = 0;
         var product_count = 0;
-        var pro_price = 0;
         local_data.forEach(element => {
           total_price += parseInt(element.product_discount_price) * parseInt(element.product_quantity);
           product_count += 1;
-          pro_price =parseInt (element.product_discount_price) * parseInt(element.product_quantity);
         });
        
      
