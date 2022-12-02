@@ -1,75 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Account Info</title>
-    <link rel="stylesheet" href="/bootstrap-5.0.2-dist/bootstrap-5.0.2-dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/Nykaa/style.css">
-</head>
-<body>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Account Info</title>
+  <link rel="stylesheet" href="/bootstrap-5.0.2-dist/bootstrap-5.0.2-dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/Nykaa/style.css">
+  <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+
+
+
+  <style>
     
-    <div class="container-fluid header ">
-        <div class="row  top-row ">
-        <div class="col-6 text-white headline ">Diwali  Dhamaka Sale Is Live - UP To 50% Off</div>
-           <div class="col-5 ul-div ">
-            <ul>
-                <li><a href="#"> 
-                  <!-- <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-app" viewBox="0 0 16 16">
+    .list {
+      /* background-color: #ffff; */
+      width: 100%;
+      padding: 15px 20px;
+      margin-left: 100px;
+      margin-right: 4px;
+      border-bottom: 1px solid #ebebeb;
+      background-color: #ffff;
+       border-radius: 2px;
+    }
+    .list:hover{
+      border-right: 3px solid #fc2779;
+    }
+    .list a {
+      text-decoration: none;
+      color: rgb(109, 109, 109);
+      font-weight: 600;
+      font-size: 15px;
+    }
+    .list a:hover{
+      color: #fc2779;
+      text-decoration: underline;
+    }
+    .right_div{
+      width: 80%;
+      height: 600px;
+      margin-left: 130px;
+      margin-right: 100px;
+    }
+  .gray_div{
+    width: 100%;
+    justify-content: center;
+    background-color: rgb(180, 177, 177);
+    
+  }
+    .user{
+      width: 50%;
+      margin: 30px 0px;
+      height: 230px;
+      background-color: #ffff;
+    }
+    .user_icon {
+      justify-content: center;
+      align-items: center;
+      padding-left: 13px;
+    }
+    .dtls div{
+      margin-left: 10px;
+    }
+    .userinfo{
+     font-size: 18px;
+     color: #7d7d7e;
+     font-size: 600;
+    }
+    .userinfo span{
+      font-size: 15px;
+     color: #8c8d94;
+     font-size: 500;
+    }
+    #name{  
+     color: #5a5a5a;
+      font-weight:700 ;
+      font-size: 22px;
+    }
+  </style>
+
+<script>
+        
+  $(document).ready(function(){
+      var user_sign_detail = JSON.parse(localStorage.getItem("user_details")) ;
+     
+          user_sign_detail.forEach(element => { 
+            document.getElementById("name") .innerHTML =`${element.user_fname} ${element.user_lname}`;
+            document.getElementById("email") .innerHTML =`${element.user_email}`;
+            document.getElementById("number") .innerHTML =`${element.user_phone_number}`;
+            document.getElementById("dob") .innerHTML =`${element.user_dob}`;
+
+      });
+        }
+  )
+
+</script>
+</head>
+
+<body>
+
+  <div class="container-fluid header ">
+    <div class="row  top-row ">
+      <div class="col-6 text-white headline ">Diwali Dhamaka Sale Is Live - UP To 50% Off</div>
+      <div class="col-5 ul-div ">
+        <ul>
+          <li><a href="#">
+              <!-- <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-app" viewBox="0 0 16 16">
                   <path d="M11 2a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3V5a3 3 0 0 1 3-3h6zM5 1a4 4 0 0 0-4 4v6a4 4 0 0 0 4 4h6a4 4 0 0 0 4-4V5a4 4 0 0 0-4-4H5z"/>
                 </svg>  -->
-                🗄  Get App  </a></li>
-                <li><a href="#"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
-                  <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"/>
-                  <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-                </svg>Store & Events </a></li>
-                <li><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gift" viewBox="0 0 16 16">
-                  <path d="M3 2.5a2.5 2.5 0 0 1 5 0 2.5 2.5 0 0 1 5 0v.006c0 .07 0 .27-.038.494H15a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1v7.5a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 1 14.5V7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h2.038A2.968 2.968 0 0 1 3 2.506V2.5zm1.068.5H7v-.5a1.5 1.5 0 1 0-3 0c0 .085.002.274.045.43a.522.522 0 0 0 .023.07zM9 3h2.932a.56.56 0 0 0 .023-.07c.043-.156.045-.345.045-.43a1.5 1.5 0 0 0-3 0V3zM1 4v2h6V4H1zm8 0v2h6V4H9zm5 3H9v8h4.5a.5.5 0 0 0 .5-.5V7zm-7 8V7H2v7.5a.5.5 0 0 0 .5.5H7z"/>
-                </svg> Gift Cards </a></li>
-                <li><a href="#"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-question-circle" viewBox="0 0 16 16">
-                  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                  <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
-                </svg> Help </a></li>
-            </ul>
-           </div>
-        </div>
-        <div class="row  second-ul  ">
-            
-            <div class="col-10 second-ul-div">
-                <ul>
-                    <li><a href="/Nykaa/nyka.html"><img src="/Nykaa/image/logo.png"></a></li>
-                    <li><a href="#">Categories</a></li>
-                    <li><a href="#">Brands</a></li>
-                    <li><a href="#">Luxe</a></li>
-                    <li><a href="#">Nykaa Fashion</a></li>
-                    <li><a href="#">Beauty Advice</a></li>
-                    <!-- <li> <button type="button" class="btn "> Search on Nykaa</button></li> -->
-                    <li><input type="search" placeholder="Search on Nykaa " ></li>
-                </ul>
-               
-            </div>
- 
-            <div class="col-2 img-div">
-                <a href="">
-                    <img src="/Nykaa/image/icone-utilisateur.png"> 
-                </a>
- 
-                <a href="/Nykaa/shoppingcart.html"><img src="/Nykaa/image/shopping-cart-black-icon-on-white-background-vector-31701008.jpg"><span id="item_count"></span>
-                 </a>
-            </div>
+              🗄 Get App
+            </a></li>
+          <li><a href="#"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-geo-alt" viewBox="0 0 16 16">
+                <path
+                  d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z" />
+                <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+              </svg>Store & Events </a></li>
+          <li><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-gift" viewBox="0 0 16 16">
+                <path
+                  d="M3 2.5a2.5 2.5 0 0 1 5 0 2.5 2.5 0 0 1 5 0v.006c0 .07 0 .27-.038.494H15a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1v7.5a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 1 14.5V7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h2.038A2.968 2.968 0 0 1 3 2.506V2.5zm1.068.5H7v-.5a1.5 1.5 0 1 0-3 0c0 .085.002.274.045.43a.522.522 0 0 0 .023.07zM9 3h2.932a.56.56 0 0 0 .023-.07c.043-.156.045-.345.045-.43a1.5 1.5 0 0 0-3 0V3zM1 4v2h6V4H1zm8 0v2h6V4H9zm5 3H9v8h4.5a.5.5 0 0 0 .5-.5V7zm-7 8V7H2v7.5a.5.5 0 0 0 .5.5H7z" />
+              </svg> Gift Cards </a></li>
+          <li><a href="#"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-question-circle" viewBox="0 0 16 16">
+                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                <path
+                  d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z" />
+              </svg> Help </a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="row  second-ul  ">
+
+      <div class="col-10 second-ul-div">
+        <ul>
+          <li><a href="/Nykaa/nyka.html"><img src="/Nykaa/image/logo.png"></a></li>
+          <li><a href="#">Categories</a></li>
+          <li><a href="#">Brands</a></li>
+          <li><a href="#">Luxe</a></li>
+          <li><a href="#">Nykaa Fashion</a></li>
+          <li><a href="#">Beauty Advice</a></li>
+          <!-- <li> <button type="button" class="btn "> Search on Nykaa</button></li> -->
+          <li><input type="search" placeholder="Search on Nykaa "></li>
+        </ul>
+
+      </div>
+
+      <div class="col-2 img-div">
+        <a href="">
+          <img src="/Nykaa/image/icone-utilisateur.png">
+        </a>
+
+        <a href="/Nykaa/shoppingcart.html"><img
+            src="/Nykaa/image/shopping-cart-black-icon-on-white-background-vector-31701008.jpg"><span
+            id="item_count"></span>
+        </a>
+      </div>
 
 
-        </div>
-        <div class="row  d-flex ">
-          <div class="col main-categories"> 
-             <ul>
-            <li id="list0"><a href="#">Makeup</a>
+    </div>
+    <div class="row  d-flex ">
+      <div class="col main-categories">
+        <ul>
+          <li id="list0"><a href="#">Makeup</a>
             <div class="outer-hidden-div row" id="visiblediv">
               <div class="hidden-div d-flex ">
                 <div class="hidden-data  ">
                   <ul>
-                    <li><a href="/Nykaa/plp.html?cat_id=1&&sub_cat_id=101" target="_blank" style="color:#fc2779 ;">Face</a></li>            
+                    <li><a href="/Nykaa/plp.html?cat_id=1&&sub_cat_id=101" target="_blank"
+                        style="color:#fc2779 ;">Face</a></li>
                     <li>Concealer</li>
                     <li>Face Primer</li>
                     <li>Foundation</li>
@@ -89,8 +189,9 @@
                 </div>
                 <div class="hidden-data bg-light ">
                   <ul>
-                    <li><a href="/Nykaa/plp.html?cat_id=1&&sub_cat_id=102" target="_blank" style="color:#fc2779 ;">Eyes</a></li>
-                   
+                    <li><a href="/Nykaa/plp.html?cat_id=1&&sub_cat_id=102" target="_blank"
+                        style="color:#fc2779 ;">Eyes</a></li>
+
                     <li>Eyeliner</li>
                     <li>Kajal</li>
                     <li>Mascara</li>
@@ -104,19 +205,20 @@
                     <li>Under Eye</li>
                     <li>Concealer</li>
                     <li>Contact Lenses</li>
-                    
+
                   </ul>
                   <ul>
                     <li><a href="#">Makeup Kits & Combos</a></li>
                     <li>MakeupCombos</li>
                     <li>Makeup Kits</li>
 
-                    
+
                   </ul>
                 </div>
                 <div class="hidden-data  ">
                   <ul>
-                    <li><a href="/Nykaa/plp.html?cat_id=1&&sub_cat_id=103" target="_blank" style="color:#fc2779 ;">Lips</a></li>
+                    <li><a href="/Nykaa/plp.html?cat_id=1&&sub_cat_id=103" target="_blank"
+                        style="color:#fc2779 ;">Lips</a></li>
                     <li>Lipstic</li>
                     <li>Liquid Lipstic</li>
                     <li>Lip Crayon</li>
@@ -126,7 +228,8 @@
                     <li>Lip Stain</li>
                   </ul>
                   <ul>
-                    <li><a href="/Nykaa/plp.html?cat_id=1&&sub_cat_id=104" style="color:#fc2779 ;" target="_blank">Nails</a></li>
+                    <li><a href="/Nykaa/plp.html?cat_id=1&&sub_cat_id=104" style="color:#fc2779 ;"
+                        target="_blank">Nails</a></li>
                     <li>Nail Polish</li>
                     <li>Nail Art Kits</li>
                     <li>Nail Care</li>
@@ -135,7 +238,8 @@
                 </div>
                 <div class="hidden-data  bg-light">
                   <ul>
-                    <li><a href="/Nykaa/plp.html?cat_id=1&&sub_cat_id=105" target="_blank" style="color:#fc2779 ;">Tools & Brushes</a></li>
+                    <li><a href="/Nykaa/plp.html?cat_id=1&&sub_cat_id=105" target="_blank" style="color:#fc2779 ;">Tools
+                        & Brushes</a></li>
                     <li>Face Brush</li>
                     <li>Eye Brush</li>
                     <li>Lip BrushBrush Sets</li>
@@ -153,43 +257,44 @@
                 <div class="hidden-data  ">
                   <ul>
                     <li><a href="#">Top Brands</a></li>
-                 <li>Kay Beauty</li>
-                 <li>Huda Beauty</li>
-                 <li>Charlotte Tilbury</li>
-                 <li>M.A.C</li>
-                 <li>Maybelline NewYork</li>
-                 <li>L'Oreal Paris</li>
-                 <li>Lakme</li>
-                 <li>Nykaa Cosmetics</li>
-                 <li>Nyx Pro.Makeup</li>
+                    <li>Kay Beauty</li>
+                    <li>Huda Beauty</li>
+                    <li>Charlotte Tilbury</li>
+                    <li>M.A.C</li>
+                    <li>Maybelline NewYork</li>
+                    <li>L'Oreal Paris</li>
+                    <li>Lakme</li>
+                    <li>Nykaa Cosmetics</li>
+                    <li>Nyx Pro.Makeup</li>
                   </ul>
                 </div>
                 <div class="hidden-data bg-light ">
-                    <ul>
-                      <li><a href="#">Quick Links</a></li>
-                      <li>Combos @ Nykaa</li> 
-                      <li>New Launches</li>
-                      <li>NFBA Nominees 2020</li>
-                      <li>Gifts @ Nykaa</li>
-                      <li>The Gift Store</li>
-                    </ul>
-                    <ul>
-                      <li><a href="#">Trending Searches</a></li>
-                      <li>Nude Lipstic</li>
-                      <li>Matte Lipstic</li>
-                      <li>Red Lipstic</li>
-                      <li>Pink Lipstic</li>
-                    </ul>
+                  <ul>
+                    <li><a href="#">Quick Links</a></li>
+                    <li>Combos @ Nykaa</li>
+                    <li>New Launches</li>
+                    <li>NFBA Nominees 2020</li>
+                    <li>Gifts @ Nykaa</li>
+                    <li>The Gift Store</li>
+                  </ul>
+                  <ul>
+                    <li><a href="#">Trending Searches</a></li>
+                    <li>Nude Lipstic</li>
+                    <li>Matte Lipstic</li>
+                    <li>Red Lipstic</li>
+                    <li>Pink Lipstic</li>
+                  </ul>
                 </div>
               </div>
             </div>
-            </li>
-            <li id="list1"><a href="#">Skin</a>
-             <div class="outer-hidden-div" id="visible-div1">
+          </li>
+          <li id="list1"><a href="#">Skin</a>
+            <div class="outer-hidden-div" id="visible-div1">
               <div class="hidden-div d-flex ">
                 <div class="hidden-data ">
                   <ul>
-                    <li><a href ="/Nykaa/plp.html?cat_id=2&&sub_cat_id=106" style="color:#fc2779 ;" target="_blank">Moisturizer</a></li>
+                    <li><a href="/Nykaa/plp.html?cat_id=2&&sub_cat_id=106" style="color:#fc2779 ;"
+                        target="_blank">Moisturizer</a></li>
                     <li>Face Moisturizer</li>
                     <li>Day Cream</li>
                     <li>Night Cream</li>
@@ -198,7 +303,8 @@
                     <li>All Purposr Gels & Cream</li>
                   </ul>
                   <ul>
-                    <li><a href="/Nykaa/plp.html?cat_id=2&&sub_cat_id=107" style="color:#fc2779 ;" target="_blank">Cleansers</a></li>
+                    <li><a href="/Nykaa/plp.html?cat_id=2&&sub_cat_id=107" style="color:#fc2779 ;"
+                        target="_blank">Cleansers</a></li>
                     <li>Face Wash Cleansers</li>
                     <li>Miceller Swater</li>
                     <li>Face Wipes</li>
@@ -216,7 +322,8 @@
                     <li>Vitamin C Serum</li>
                   </ul>
                   <ul>
-                    <li><a href="/Nykaa/plp.html?cat_id=2&&sub_cat_id=109"target="_blank" style="color:#fc2779 ;">Masks</a></li>
+                    <li><a href="/Nykaa/plp.html?cat_id=2&&sub_cat_id=109" target="_blank"
+                        style="color:#fc2779 ;">Masks</a></li>
                     <li>Sheet Masks</li>
                     <li>Sleepimg Masks</li>
                     <li>Masks & Peels</li>
@@ -231,7 +338,8 @@
                 </div>
                 <div class="hidden-data ">
                   <ul>
-                    <li><a href="/Nykaa/plp.html?cat_id=2&&sub_cat_id=108" style="color:#fc2779 ;" target="_blank">Body Care</a></li>
+                    <li><a href="/Nykaa/plp.html?cat_id=2&&sub_cat_id=108" style="color:#fc2779 ;" target="_blank">Body
+                        Care</a></li>
                     <li>Lotions & Cream</li>
                     <li>Body Butter</li>
                     <li>Massage Oils</li>
@@ -262,7 +370,8 @@
                     <li>Facial Peels</li>
                   </ul>
                   <ul>
-                    <li><a href="/Nykaa/plp.html?cat_id=2&&sub_cat_id=110"target="_blank" style="color:#fc2779 ;">Eye Care</a></li>
+                    <li><a href="/Nykaa/plp.html?cat_id=2&&sub_cat_id=110" target="_blank" style="color:#fc2779 ;">Eye
+                        Care</a></li>
                     <li>Under Eye Cream & Serum</li>
                     <li>Eye Masks</li>
                   </ul>
@@ -297,7 +406,7 @@
                     <li><a href="#">Skin Supplements</a></li>
                     <li>Vitamins & Minerals</li>
                     <li>Ayurvedic Herbs</li>
-                  
+
                   </ul>
                 </div>
                 <div class="hidden-data bg-light">
@@ -311,7 +420,7 @@
                     <li>Pores</li>
                     <li>Daek Spots </li>
                     <li>Face Tan</li>
-                    <li>Oil  Control</li>
+                    <li>Oil Control</li>
                   </ul>
                   <ul>
                     <li><a href="#">New Launches</a></li>
@@ -321,107 +430,112 @@
                     <li>The Gift Store</li>
                   </ul>
                 </div>
-              </div> 
-             </div> 
-            </li>
-            <li id="list2"><a href="#">Hair</a>
+              </div>
+            </div>
+          </li>
+          <li id="list2"><a href="#">Hair</a>
 
-              <div class="outer-hidden-div" id="visible-div2">
-                <div class="hidden-div d-flex ">
-                  <div class="hidden-data  ">
-                    <ul>
-                      <li><a href="/Nykaa/plp.html?cat_id=3&&sub_cat_id=111" style="color:#fc2779 ;" target="_blank">Hair Care</a></li>
-                      <li>Shampoo</li>
-                      <li>Dry Shampoo</li>
-                      <li>Conditioner</li>
-                      <li>Hair Oil</li>
-                      <li>Hair Serum</li>
-                      <li>Hair Creams & Masks</li>
-                      <li>Hair Supplements</li>
-                    </ul>
-                  </div>
-                  <div class="hidden-data  bg-light">
-                    <ul>
-                      <li><a href="/Nykaa/plp.html?cat_id=3&&sub_cat_id=112"target="_blank" style="color:#fc2779 ;">Tools & Accessories</a></li>
-                      <li>Hair Brushes</li>
-                      <li>Hair Combs</li>
-                      <li>Dryers & Stylers</li>
-                      <li>Straighteners</li>
-                      <li>Rollers & Curlers</li>
-                      <li>Hair Extensions</li>
-                      <li>Hair Accessories</li>
-                    </ul>
-                  </div>
-                  <div class="hidden-data">
-                    <ul>
-                      <li><a href="/Nykaa/plp.html?cat_id=3&&sub_cat_id=113" style="color:#fc2779 ;" target="_blank">Hair Styling</a></li>
-                      <li>Hair Color</li>
-                      <li>Hair Spray</li>
-                      <li>Gels & Waxes</li>
-                      
-                    </ul>
-                    <ul>
-                      <li><a href="/Nykaa/plp.html?cat_id=3&&sub_cat_id=114"target="_blank" style="color:#fc2779 ;">Shop By Hair Type </a></li>
-                      <li>Straight</li>
-                      <li>Curly & Wavy</li>
-                    </ul>
-  
-                    <ul>
-                      <li><a href="#">Professional Brands</a></li>
-                    </ul>
-                  </div>
-                  <div class="hidden-data bg-light ">
-                    <ul>
-                      <li><a href="/Nykaa/plp.html?cat_id=3&&sub_cat_id=115" style="color:#fc2779 ;" target="_blank">Shop By Concern</a></li>
-                      <li>Hairfall & Thinning</li>
-                      <li>Dandruff</li>
-                      <li>Dry & Frizzy Hair</li>
-                      <li>Split Ends</li>
-                      <li>Color Protecction</li>
-                    </ul>
-                    <ul>
-                      <li><a href="#">Trending Searches</a></li>
+            <div class="outer-hidden-div" id="visible-div2">
+              <div class="hidden-div d-flex ">
+                <div class="hidden-data  ">
+                  <ul>
+                    <li><a href="/Nykaa/plp.html?cat_id=3&&sub_cat_id=111" style="color:#fc2779 ;" target="_blank">Hair
+                        Care</a></li>
+                    <li>Shampoo</li>
+                    <li>Dry Shampoo</li>
+                    <li>Conditioner</li>
+                    <li>Hair Oil</li>
+                    <li>Hair Serum</li>
+                    <li>Hair Creams & Masks</li>
+                    <li>Hair Supplements</li>
+                  </ul>
+                </div>
+                <div class="hidden-data  bg-light">
+                  <ul>
+                    <li><a href="/Nykaa/plp.html?cat_id=3&&sub_cat_id=112" target="_blank" style="color:#fc2779 ;">Tools
+                        & Accessories</a></li>
+                    <li>Hair Brushes</li>
+                    <li>Hair Combs</li>
+                    <li>Dryers & Stylers</li>
+                    <li>Straighteners</li>
+                    <li>Rollers & Curlers</li>
+                    <li>Hair Extensions</li>
+                    <li>Hair Accessories</li>
+                  </ul>
+                </div>
+                <div class="hidden-data">
+                  <ul>
+                    <li><a href="/Nykaa/plp.html?cat_id=3&&sub_cat_id=113" style="color:#fc2779 ;" target="_blank">Hair
+                        Styling</a></li>
+                    <li>Hair Color</li>
+                    <li>Hair Spray</li>
+                    <li>Gels & Waxes</li>
+
+                  </ul>
+                  <ul>
+                    <li><a href="/Nykaa/plp.html?cat_id=3&&sub_cat_id=114" target="_blank" style="color:#fc2779 ;">Shop
+                        By Hair Type </a></li>
+                    <li>Straight</li>
+                    <li>Curly & Wavy</li>
+                  </ul>
+
+                  <ul>
+                    <li><a href="#">Professional Brands</a></li>
+                  </ul>
+                </div>
+                <div class="hidden-data bg-light ">
+                  <ul>
+                    <li><a href="/Nykaa/plp.html?cat_id=3&&sub_cat_id=115" style="color:#fc2779 ;" target="_blank">Shop
+                        By Concern</a></li>
+                    <li>Hairfall & Thinning</li>
+                    <li>Dandruff</li>
+                    <li>Dry & Frizzy Hair</li>
+                    <li>Split Ends</li>
+                    <li>Color Protecction</li>
+                  </ul>
+                  <ul>
+                    <li><a href="#">Trending Searches</a></li>
                     <li>Hair Growth Oil </li>
                     <li>Dandruff Shampoo</li>
                     <li>Castor Oil For Hair</li>
                     <li>Sulphate Free Shampoo</li>
                     <li>Hair Straightener Brush</li>
-                    </ul>
-                  </div>
-  
-                  <div class="hidden-data ">
-                    <ul>
-                      <li><a href="#">Top Brands</a></li>
-                      <li>Nykaa Naturals</li>
-                      <li>L'Oreals Paris</li>
-                      <li>Wella Professionals</li>
-                      <li>L'Oreals Professionals</li>
-                      <li>BBLunt</li>
-                      <li>Herbal Essences</li>
-                      <li>Schwarzkopf</li>
-                      <li>Professionals</li>
-                    </ul>
-                  </div>
-                  <div class="hidden-data bg-light">
-                    <ul>
-                      <li><a href="#">Quick Links</a></li>
-                      <li>Combos @ Nykaa</li>
-                      <li>New Launches</li>
-                      <li>NFBA Nominees 2020</li>
-                      <li>Herbal Hair Care</li>
-                      <li>Routine Finder</li>
-                      <li>The Beauty</li>
-                      <li>Ingredient Edit</li>
-                      <li>The Safe Beauty </li>
-                      <li>The Gift Store</li>
-                    </ul>
-                  </div>
-                 
+                  </ul>
                 </div>
+
+                <div class="hidden-data ">
+                  <ul>
+                    <li><a href="#">Top Brands</a></li>
+                    <li>Nykaa Naturals</li>
+                    <li>L'Oreals Paris</li>
+                    <li>Wella Professionals</li>
+                    <li>L'Oreals Professionals</li>
+                    <li>BBLunt</li>
+                    <li>Herbal Essences</li>
+                    <li>Schwarzkopf</li>
+                    <li>Professionals</li>
+                  </ul>
+                </div>
+                <div class="hidden-data bg-light">
+                  <ul>
+                    <li><a href="#">Quick Links</a></li>
+                    <li>Combos @ Nykaa</li>
+                    <li>New Launches</li>
+                    <li>NFBA Nominees 2020</li>
+                    <li>Herbal Hair Care</li>
+                    <li>Routine Finder</li>
+                    <li>The Beauty</li>
+                    <li>Ingredient Edit</li>
+                    <li>The Safe Beauty </li>
+                    <li>The Gift Store</li>
+                  </ul>
+                </div>
+
               </div>
-            </li>
-            <li id="list3"><a href="#">Appliances</a>
-             <div class="outer-hidden-div" id="visible-div3">
+            </div>
+          </li>
+          <li id="list3"><a href="#">Appliances</a>
+            <div class="outer-hidden-div" id="visible-div3">
               <div class="hidden-div d-flex ">
                 <div class="hidden-data  ">
                   <ul>
@@ -480,7 +594,7 @@
                 </div>
                 <div class="hidden-data bg-light ">
                   <ul>
-                  <li><a href="#">Quick Links</a></li>
+                    <li><a href="#">Quick Links</a></li>
                     <li>Combos @ Nykaa</li>
                     <li>New Launches</li>
                     <li>NFBA Nominees 2020</li>
@@ -490,10 +604,10 @@
                   </ul>
                 </div>
               </div>
-             </div>
-            </li>
-            <li id="list4"><a href="#">Bath & Body</a>
-             <div class="outer-hidden-div" id="visible-div4">
+            </div>
+          </li>
+          <li id="list4"><a href="#">Bath & Body</a>
+            <div class="outer-hidden-div" id="visible-div4">
               <div class="hidden-div d-flex ">
                 <div class="hidden-data  ">
                   <ul>
@@ -606,10 +720,10 @@
                   </ul>
                 </div>
               </div>
-             </div>
-            </li>
-            <li id="list5"><a href="#">Natural</a>
-             <div class="outer-hidden-div" id="visible-div5">
+            </div>
+          </li>
+          <li id="list5"><a href="#">Natural</a>
+            <div class="outer-hidden-div" id="visible-div5">
               <div class="hidden-div d-flex ">
                 <div class="hidden-data  ">
                   <ul>
@@ -742,9 +856,9 @@
                   </ul>
                 </div>
               </div>
-             </div>
-            </li>
-            <li id="list6"><a href="#">Mom & Baby</a>
+            </div>
+          </li>
+          <li id="list6"><a href="#">Mom & Baby</a>
             <div class="outer-hidden-div" id="visible-div6">
               <div class="hidden-div d-flex ">
                 <div class="hidden-data  ">
@@ -839,9 +953,9 @@
                 </div>
               </div>
             </div>
-            </li>
-            <li id="list7"><a href="#">Health & Wellness</a>
-             <div class="outer-hidden-div" id="visible-div7">
+          </li>
+          <li id="list7"><a href="#">Health & Wellness</a>
+            <div class="outer-hidden-div" id="visible-div7">
               <div class="hidden-div d-flex ">
                 <div class="hidden-data  ">
                   <ul>
@@ -900,7 +1014,7 @@
                     <li>Weighing Scales</li>
                     <li>Fitness</li>
                     <li>Face Steamres</li>
-                    </ul>
+                  </ul>
                 </div>
                 <div class="hidden-data bg-light ">
                   <ul>
@@ -952,10 +1066,10 @@
                   </ul>
                 </div>
               </div>
-             </div>
-            </li>
-           <li id="list8"><a href="#">Men </a>
-             <div class="outer-hidden-div" id="visible-div8">
+            </div>
+          </li>
+          <li id="list8"><a href="#">Men </a>
+            <div class="outer-hidden-div" id="visible-div8">
               <div class="hidden-div d-flex ">
                 <div class="hidden-data  ">
                   <ul>
@@ -1007,7 +1121,8 @@
                     <li>SunScreen</li>
                     <li>Masks & Peels</li>
                     <li>Fairness</li>
-                    </ul>                </div>
+                  </ul>
+                </div>
                 <div class="hidden-data bg-light ">
                   <ul>
                     <li><a href="#">Bath & Body</a></li>
@@ -1023,13 +1138,13 @@
                   </ul>
                   <ul>
                     <li><a href="#">Grooming Kits</a></li>
-                    </ul>
-                    <ul>
-                      <li><a href="#">Fragrance</a></li>
-                      <li>Deodorants/Roll-Ons</li>
-                      <li>Colognes & Perfumes</li>
-                      <li>Luxe Fragrances</li>
-                    </ul>
+                  </ul>
+                  <ul>
+                    <li><a href="#">Fragrance</a></li>
+                    <li>Deodorants/Roll-Ons</li>
+                    <li>Colognes & Perfumes</li>
+                    <li>Luxe Fragrances</li>
+                  </ul>
                 </div>
                 <div class="hidden-data  ">
                   <ul>
@@ -1068,10 +1183,10 @@
                   </ul>
                 </div>
               </div>
-             </div>
-            </li> 
-            <li id="list9"><a href="#">Fragrance</a>
-             <div class="outer-hidden-div" id="visible-div9">
+            </div>
+          </li>
+          <li id="list9"><a href="#">Fragrance</a>
+            <div class="outer-hidden-div" id="visible-div9">
               <div class="hidden-div d-flex ">
                 <div class="hidden-data  ">
                   <ul>
@@ -1152,11 +1267,11 @@
                   </ul>
                 </div>
               </div>
-             </div>
-            </li>
-            <li id="list10"><a href="#">Pop Ups</a>
+            </div>
+          </li>
+          <li id="list10"><a href="#">Pop Ups</a>
 
-             <div class="outer-hidden-div" id="visible-div10">
+            <div class="outer-hidden-div" id="visible-div10">
               <div class="hidden-div d-flex ">
                 <div class="hidden-data  ">
                   <ul>
@@ -1287,22 +1402,45 @@
                   </ul>
                 </div>
               </div>
-             </div>
-            </li>
+            </div>
+          </li>
 
-        </ul></div>
+        </ul>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="d-flex ">
+        <div class="left_div mt-5 ">
+          <!-- <div class=" mt-5 "> -->
+            <div class="list"> <a href="#">My Profile</a> </div>
+            <div class="list"> <a href="#">My Wallet</a>  </div>
+            <div class="list"> <a href="#">My Orders</a>  </div>
+            <div class="list"> <a href="#">My Wishlist</a>  </div>
+            <div class="list"> <a href="#">My Saved Payment</a>  </div>
+            <div class="list"> <a href="#"> Log Out</a> </div>
+          <!-- </div> -->
         </div>
-
-        <div class="row">
-            <div class="col-3 ">
-                <div class="left_div bg-danger mt-5 "></div>
+        <div class="right_div  mt-5">
+          <div class="gray_div  d-flex">
+            <div class="user d-flex">
+              <div class="user_icon d-flex"><img src="./image/userimg.svg" alt=""></div>
+              <div class="dtls">
+                <div class="mt-5"><p id="name">Sheetal Thakur</p>
+                <p class="userinfo">Email: <span id="email">sheetalthakur@gmail.com</span><br/>
+                    Mobile: <span id="number">1234567890</span><br/>
+              Date of Birth:  <span id="dob">15-04-2002</span></p>
+              </div>
+              </div>
             </div>
-            <div class="col-9">
-                    <div class="right_div bg-primary mt-5"></div>
-            </div>
+          </div>
+          <div class="address_div"></div>
         </div>
       </div>
-      
-      <script src="/Nykaa/nyka.js"></script>
+    </div>
+  </div>
+
+  <script src="/Nykaa/nyka.js"></script>
 </body>
+
 </html>

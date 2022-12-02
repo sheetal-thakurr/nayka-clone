@@ -7,195 +7,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
     <link rel="stylesheet" href="/bootstrap-5.0.2-dist/bootstrap-5.0.2-dist/css/bootstrap-grid.min.css">
-    <style>
-        * {
-            margin: 0px;
-            padding: 0px;
-        }
+    <link rel="stylesheet" href="./sign.css">
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
 
-        body {
-            background-color: rgb(248, 236, 241);
-        }
-
-        .main_div {
-            margin: 80px 250px;
-            height: 500px;
-            width: 300px;
-            border: 2px solid rgb(239, 50, 116);
-            overflow: hidden;
-            border-radius: 8px;
-            background: url("/Nykaa/image/creambeauty.jpg");
-
-        }
-
-        .u_class {
-            justify-content: center;
-            text-align: center;
-            color: black;
-        }
-
-        .signin {
-            align-items: center;
-            padding: 0px 30px;
-            border-right: 3px solid rgb(239, 50, 116);
-        }
-
-        #heading {
-            font-size: 38px;
-            font-weight: 800;
-            padding-bottom: 15px;
-        }
-
-        #text {
-            padding-top: 14px;
-            font-size: 23px;
-            font-weight: 600;
-        }
-
-        .btnstyle {
-            margin-top: 45px;
-            width: 130px;
-            padding: 5px;
-            border: 1px solid rgb(245, 156, 187);
-            background: rgb(249, 5, 91);
-            border-radius: 20px;
-            color: black;
-            font-size: 22px;
-            font-weight: 700;
-            cursor: pointer;
-        }
-
-        .account {
-            padding: 40px 130px;
-            color: black;
-            font-weight: 700;
-        }
-
-        .account a {
-            text-decoration: none;
-            color: rgb(249, 5, 91);
-            font-weight: bolder;
-            font-style: italic;
-        }
-
-        #logo {
-            font-size: 33px;
-        }
-
-        #com {
-            font-size: 20px;
-            font-weight: bold;
-        }
-
-        #para {
-            font-style: oblique;
-            font-size: 15px;
-            padding-top: 5px;
-            padding-bottom: 15px;
-        }
-
-        .lower_info h2 {
-            font-size: 27px;
-            font-weight: 500;
-            font-style: inherit;
-            padding-top: 8px;
-            padding-bottom: 3px;
-        }
-
-        .lower_info svg {
-            cursor: pointer;
-        }
-
-        .rgstr_box p {
-            font-size: 15px;
-            color: rgb(48, 47, 47);
-            font-weight: 500;
-        }
-
-        .inpt div {
-            margin: 2px;
-        }
-
-        .finpt {
-            width: 230px;
-            padding: 8px;
-            border: 1px solid rgb(245, 156, 187);
-            border-radius: 5px;
-        }
-
-        .sbmt button {
-            color: rgb(117, 112, 112);
-            background-color: white;
-            margin: 7px 0px;
-        }
-
-        .gender {
-
-            background-color: white;
-            border: 1px solid rgb(245, 156, 187);
-            border-radius: 5px;
-            color: rgb(117, 112, 112);
-            font-weight: 400;
-            padding: 6px 1px;
-            font-size: 14px;
-
-        }
-
-        #spn {
-            margin-left: -13%;
-        }
-
-        #spn1 {
-            margin-left: 3px;
-        }
-
-        #dob {
-            border: none;
-            padding-left: 50px;
-            color: rgb(117, 112, 112);
-        }
-    </style>
 
     <script>
-        function signin() {
-
-            var signbox = document.getElementById("sign");
-            signbox.style.border = "none";
-            signbox.innerHTML = "";
-            document.getElementById("account").style.padding = "40px 250px";
-            document.getElementById("sign_info").innerHTML = `
-            <div class="mt-4">
-            <svg xmlns="http://www.w3.org/2000/svg"  width="16" height="16" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
-                                <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
-                              </svg>&nbsp;&nbsp;&nbsp;
-                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-google" viewBox="0 0 16 16">
-                                <path d="M15.545 6.558a9.42 9.42 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.689 7.689 0 0 1 5.352 2.082l-2.284 2.284A4.347 4.347 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.792 4.792 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.702 3.702 0 0 0 1.599-2.431H8v-3.08h7.545z"/>
-                              </svg> 
-                            <div class="mt-3">
-                                <form action="#" class="inpt">
-                                    <div >
-                                        <input type="number" id="number" class="finpt" placeholder=" Phone Number" required>
-                                    </div>
-                                    <div>
-                                        <input type="email" id="email" class="finpt" placeholder=" Email" required>
-                                    </div>
-                                    <div>
-                                        <input type="password" id="password" class="finpt" placeholder=" password" required>
-                                    </div>
-                                    <div class="sbmt mt-3">
-                                        <button type="submit" class="btn btn-small btnstyle">Proceed</button>
-                                    </div>
-                                </form>
-                            </div>
-                            </div>`;
-        }
 
         function proceed_to_sign() {
             let fname = document.getElementById("fname").value;
             let lname = document.getElementById("lname").value;
             let phone_number = document.getElementById("number").value;
             let email = document.getElementById("email").value;
-            let pswrd = document.getElementById("password").value;
+            let paswrd = document.getElementById("password").value;
             let dob = document.getElementById("dob").value;
             let gender = document.querySelector('input[type="radio"]:checked').value;
 
@@ -204,7 +27,7 @@
                 user_lname: lname,
                 user_phone_number: phone_number,
                 user_email: email,
-                user_pswrd: pswrd,
+                user_pswrd: paswrd,
                 user_dob: dob,
                 user_gender: gender
             }
@@ -212,12 +35,7 @@
             user_obj.push(user_details_obj)
             localStorage.setItem("user_details", JSON.stringify(user_obj))
         }
-// if((username===mobile||username====email)&&password===pass){
 
-//     localStorage.setItem("userSession",true)
-// }else{
-//     alert("invalid credentials!")
-// }
     </script>
 </head>
 
@@ -229,14 +47,13 @@
                     <div>
                         <p id="heading">Welcome Back!</p>
                         <p id="text">Sign back in to view <br /> your account & makeup goodness.</p>
-                        <button type="button" class="btn btn-small  btnstyle" onclick="signin()">Sign In</button>
+                        <button type="button" class="btn btn-small  btnstyle"  > <a href="./sign_in.html"> Sign In</a></button>
                     </div>
                 </div>
                 <div class="account d-flex u_class" id="account">
                     <div>
                         <div>
-                            <a href="/Nykaa/nyka.html" target="_blank"> <span id="logo">NYKAA</span>
-                                <span id="com">.com</span></a>
+                            <a href="/Nykaa/nyka.html" target="_blank"> <span id="logo">NYKAA</span>  <span id="com"> .com  </span></a>
                             <p id="para">Your Beauty, Our Passoin</p>
                         </div>
                         <div class="lower_info" id="sign_info">
@@ -294,7 +111,7 @@
                                     <div class="sbmt ">
 
                                         <button type="submit" class="btn btn-small btnstyle"
-                                            onclick="proceed_to_sign()">Submit</button>
+                                            onclick="proceed_to_sign() , location.href = '/Nykaa/sign_in.html';" > Register  </button>
                                     </div>
                                 </form>
                             </div>
