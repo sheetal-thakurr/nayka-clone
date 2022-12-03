@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AddrPageess </title>
+    <link rel="stylesheet" href="/bootstrap-5.0.2-dist/bootstrap-5.0.2-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bootstrap-5.0.2-dist/bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js">
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+    <script src="	https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        body{
+            margin: 0px;
+            padding: 0px;
+            background-color: whitesmoke;
+        }
+        #top_row{
+        background-color: white;
+            box-sizing: border-box;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            margin-top: 8px ;
+            margin-left: 5%;
+            justify-content: center;
+            width: 90%;
+        }
+        #nyka_logo {
+        margin-left: 130px;
+        }
+        #nyka_logo img{
+            margin-left: 20px;
+            width: 110px;
+            height: 70px;
+        }
+        #link div{
+            margin: 4px ;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 15px;
+            font-weight: bold;
+            padding: 0px 13px;
+            color: rgb(67, 65, 65);
+            border-left: 1px solid rgb(179, 176, 176);
+        }
+        #link :nth-child(1){
+            margin-left: 30px;
+           
+        }
+        #link :nth-child(2){
+            margin-left: 100px;
+            padding-right: 100px;
+            color: #fc2779;
+            border-bottom: 3px solid #fc2779;
+        }
+        #link :nth-child(3){
+            padding-right: 100px;
+            border-right: 1px solid rgb(179, 176, 176);
+
+        }
+        #left {
+           background-color: white;
+           margin-left:20%;
+        }
+        #left div{
+            font-size: 14px;
+            font-weight: 300;
+            margin: 8px 12px;
+            padding: 10px ;
+            border-bottom: 1px solid rgb(179, 176, 176);
+
+        }
+        #left div input{
+            border: none;
+        }
+        #left div textarea{
+            width: 100%;
+        }
+        #left div:nth-child(1){
+            font-size: 17px;
+            font-weight: 700;
+        }
+        #left div select{
+            border: none;
+            font-size: 14px;
+            font-weight: 300;
+            padding-top: 3px;
+        }
+        #right{
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container-fluid">
+        <div class="row">
+            <div id="top_row" class="d-flex  ">
+                <div id="nyka_logo" class="   col-2">
+                    <a href="/Nykaa/nyka.html"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTK47iYyT-3X758RkOppaeJ6z-1UPe_ehVqq-ldzFiA_Rw3Cwv_vQY_vk0MtNo7DsZg_Eg&usqp=CAU"></a>
+                </div>
+            <div id="link" class="d-flex  col-10">
+                <div>1 - LOGIN</div>
+                <div>2 - ADDRESS</div>
+                <div>3 - PAYMENT</div>
+            </div>
+            </div>
+        </div>
+        <div class="row">
+            <div id="bottom_Part " class="mt-5 d-flex ">
+                <div id="left" class="col-4">
+                    <div  id="n_add">New Address</div>
+                    <div >
+                        <label for="">Select Country</label><br/>
+                        <select name="" id="country">
+                            <option value="1">Pak</option>
+                            <option value="2" selected>India</option>
+                            <option value="3">Nepal</option>
+                            <option value="4">China</option>
+                            <option value="5">UK</option>
+                        </select>
+                    </div>
+                    <div >
+                        <input type="text" placeholder="Name" required>
+                    </div>
+                    <div >
+                     <input type="number" placeholder="Phone Number"   pattern="[0-9]{10}" required>
+                    </div>
+                    <div>
+                        <input type="text" required placeholder="Postal Code">
+                    </div>
+                    <div>
+                        <label for="">Address</label>
+                      <br/>  <textarea></textarea>
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-lg "><a href="#">SHIP TO THIS ADDRESS</a></button>
+                    </div>
+                </div>
+                <div id="right" class="col-3">
+
+
+                    <div class="accordion" id="accordionExample">
+
+                        <div class="accordion-item">
+                          <h2 class="accordion-header" id="headingThirteen">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThirteen" aria-expanded="false" aria-controls="collapseThirteen">
+                             Shopping Bag
+                            </button>
+                          </h2>
+                          <div id="collapseThirteen" class="accordion-collapse collapse" aria-labelledby="headingThirteen" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                            
+                             
+                            </div>
+                          </div>
+                        </div>
+                        <div class="accordion-item">
+                          <h2 class="accordion-header" id="headingForteen">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseForteen" aria-expanded="false" aria-controls="collapseForteen">
+                              Price Details
+                            </button>
+                          </h2>
+                          <div id="collapseForteen" class="accordion-collapse collapse" aria-labelledby="headingForteen" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
