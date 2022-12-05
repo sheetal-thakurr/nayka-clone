@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Success</title>
+    <style>
+        button{
+            cursor: pointer;
+            padding: 10px;
+            font-size: 15px;
+            border-radius: 8px;
+            background-color: rgb(237, 237, 237);
+            border: 1px solid rgb(179, 176, 176);
+        }
+        button:hover{
+            background-color: #fc2779;
+            color: #ffff;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <center>
+            <img src="https://momentumacademy.net/wp-content/uploads/2020/05/Paymentsuccessful21.png" alt="">
+
+        </center>
+        <center>
+            <a href="./nyka.html">
+                <button id="clear">Go Back to Home  And Shop</button>
+            </a>
+        </center>
+    </div>
+
+    <script>
+        document.getElementById("clear").addEventListener("click",clear_data);
+        function clear_data(){
+            localStorage.clear();
+            window.location.reload();
+        }
+    </script>
+</body>
+</html>

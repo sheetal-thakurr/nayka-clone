@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sign in</title>
+    <link rel="stylesheet" href="./signPage.css">
+
+    <style>
+        #inner_div p{
+            padding-bottom: 0px;
+        }
+       .inpt{
+            margin-top: 0px;
+            color: rgb(96, 95, 95);
+        }
+        .inpt :nth-child(1){
+            margin-top: 0px;
+        }
+        .inpt :nth-child(3){
+          border: none;
+          border-bottom: 1px solid #fc2779;
+        }
+        .inpt input{
+            padding: 7px;
+            border: 1px solid rgb(215, 215, 215);
+
+        }
+        .inpt button{
+            margin-top: 30px;
+            cursor: pointer;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="outer_div">
+        <div id="inner_div">
+            <!-- <p>  SIGN IN</p> -->
+            <p>Login</p>
+            <!-- <hr/> -->
+            <div class="inpt">
+            <input type="text"   placeholder="Enter Phone Number Or Email" id="num_email" required>
+
+                <p style="font-size: 15px; text-align:center;" class="p_txt">Welcome Back <br/>
+                Please enter the OTP sent on your phone <br/>
+            (Be sure to check your spam folder)</p>
+            <!-- <input type="password" placeholder="Password" id="pswrd" required> -->
+            <input type="number" placeholder="Enter OTP Only 123456" id="otp">
+            <br/>
+            <button  id="verify"> Verify</button>
+            <p style="font-size: 15px; text-align:center; "class="p_txt">Login Via Password</p>
+        </div>
+        </div>
+    </div>
+
+    <script>
+          document.getElementById("verify").addEventListener("click",otp_verify)
+     function otp_verify(){
+     var OTP = document.getElementById("otp").value;
+        if(OTP == "123456"){
+        location.href = "./nyka.html";
+     }
+     else{
+        alert("Incorrect OTP !")
+     }
+    }
+    </script>
+</body>
+</html>

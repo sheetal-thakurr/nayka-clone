@@ -1,0 +1,130 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body{
+    margin: 0px;
+    padding: 0px;
+    background-color: whitesmoke;
+}
+#top_row{
+    background-color: white;
+    box-sizing: border-box;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    margin-top: 8px ;
+    margin-left: 5%;
+    justify-content: center;
+    width: 90%;
+}
+#nyka_logo {
+margin-left: 130px;
+}
+#nyka_logo img{
+    margin-left: 20px;
+    width: 110px;
+    height: 70px;
+}
+#link div{
+    margin: 4px ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 0px 13px;
+    color: rgb(67, 65, 65);
+    border-left: 1px solid rgb(179, 176, 176);
+}
+#link :nth-child(1){
+    margin-left: 30px;
+   
+}
+#link :nth-child(2){
+    margin-left: 100px;
+    padding-right: 100px;
+    color: #fc2779;
+    border-bottom: 3px solid #fc2779;
+}
+#link :nth-child(3){
+    padding-right: 100px;
+    border-right: 1px solid rgb(179, 176, 176);
+
+}
+#left {
+   background-color: white;
+   margin-left:25%;
+   height: 480px;
+   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+}
+#left div{
+    font-size: 14px;
+    font-weight: 300;
+    margin: 8px 12px;
+    padding: 10px ;
+    border-bottom: 1px solid rgb(179, 176, 176);
+
+}
+#left div input{
+    border: none;
+}
+#left div textarea{
+    width: 100%;
+}
+#left div:nth-child(1){
+    font-size: 17px;
+    font-weight: 700;
+}
+#left div select{
+    border: none;
+    font-size: 14px;
+    font-weight: 300;
+    padding-top: 3px;
+}
+#left button{
+    background-color: #fc2779;
+    width: 100%;
+    border-radius: 0px;
+    padding: 15px 0px;
+    color: #ffff;
+}
+
+#left  a{
+    text-decoration: none;
+}
+
+#right{
+    margin-left: 20px;
+}
+
+#full_dtls{
+    border-bottom: 1px solid rgb(179, 176, 176);
+    padding-bottom: 10px;
+}
+.heading{
+    font-weight: 700;
+}
+#img_div img{
+    height: 90px;
+    width: 90px;
+    margin: 5px;
+}
+#para {
+    margin-left: 10px;
+    overflow: hidden;
+    color: rgb(0, 19, 37);
+    font-size: 14px;
+    font-weight: 400;
+    text-overflow: ellipsis;
+    padding: 5px;
+    padding-bottom: 20px;
+}
+.rs{
+    padding-left: 140px;
+    font-weight: 600;
+}
+
+.lst_div {
+    border-radius: 4px;
+    padding: 8px;
+}

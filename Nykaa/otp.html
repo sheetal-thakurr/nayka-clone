@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Otp</title>
+    <style>
+        .otp_box{
+            justify-content: center;
+            display: flex;
+        }
+        .otp{
+            margin-top: 200px;
+            width: 250px;
+            height: 200px;
+            border: 1px solid rgb(179, 176, 176);
+            text-align: center;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        }
+        .otp input{
+            margin: 8px;
+            padding: 5px;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+   <div>
+    <div class="otp_box ">
+        <div class="otp">
+            <h1>ENTER OTP</h1>
+            <input type="number" id="otp1" placeholder="Enter OTP Only 123456"><br/>
+            <input type="submit" id="sub_mit">
+            <input type="reset" value="delete">
+
+        </div>
+    </div>
+   </div> 
+   <script>
+
+    document.getElementById("sub_mit").addEventListener("click",otp_check)
+     function otp_check(){
+     var otp = document.getElementById("otp1").value;
+        if(otp == "123456"){
+        alert("Payment Successfull");
+        location.href = "./success.html";
+     }
+     else{
+        alert("Incorrect OTP !")
+     }
+    }
+    
+   </script>
+</body>
+</html>

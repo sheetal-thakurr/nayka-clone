@@ -5,8 +5,11 @@
    margin: 0px;
 
  }
+
  body{
   background-color: rgb(244, 238, 238);
+  padding: 0px;
+  margin: 0px;
  }
  .sign_btn{
   background-color: #fc2779;
@@ -405,3 +408,152 @@ text-align: center;
   padding-bottom: 20px;
 }
 
+
+/* shopping cart */
+
+#quantity_Select{
+  background-color:rgb(239, 178, 201);
+  color: rgb(48, 48, 48);
+  font-size: 20px;
+      font-weight: 700;
+      border: none;
+}
+  .pro_div {
+      margin: 5%;
+      border-radius: 5px;
+
+  }
+  #product_item_detail{
+    width: 100%;
+    height: 90%;
+  }
+  #pro_img{
+    margin: 10px;
+    background-color:rgb(239, 178, 201);
+    border: 2px solid rgb(245, 156, 187);
+  }
+
+  #pro_img img {
+      margin: 35px 50px;
+      height: 170px;
+      width: 150px;
+  }
+
+  #all_detail{
+    margin: 15px 20px 15px 40px;
+  }
+  #all_detail p{
+      padding-left: 40px;
+      font-size: 16px;
+      font-weight: 700;
+      color: rgb(57, 56, 56);
+  }
+ 
+
+  #pro_about strong {
+      font-size: 20px;
+      font-weight: 700;
+      color: rgb(48, 48, 48);
+  }
+
+  #pro_mrp {
+      padding-left: 33%;
+  }
+
+.spn {
+      padding-left: 24%;
+  }
+  .spn1 {
+      padding-left: 6%;
+  }
+  .spn2 {
+      padding-left: 35%;
+  }
+  
+  #right{
+      margin-top: 16%;
+      margin-left: -20%;
+     ;
+  }
+  .right-para{
+      padding-left: 30px;
+      background-color:rgb(239, 178, 201);
+      border: 2px solid rgb(245, 156, 187);
+     
+  }
+  #r-txt p{
+      font-size: 18px;
+      padding-top: 20px;
+  
+  }
+  .r-spn{
+      padding-left: 15%;
+  }
+  .r-second{
+    border-radius: 5px;
+      font-weight: 600;
+   margin-right: 20px;
+   color: aliceblue;
+      background-color:  rgb(239, 50, 116);
+  }
+
+  #shop{
+    text-align: center;
+    padding: 8px;
+  }
+
+  #coupon strong{
+    padding-left: 80px;
+    font-size: 18px;
+  }
+  #coupon span{
+      color: rgb(239, 50, 116);
+      font-weight: 500;
+      padding-left: 30px;
+  }
+  #proceed button{
+      margin: 14px 30px;
+      width: 70%;
+      padding: 8px;
+      font-size: 20px;
+      font-weight: 600;
+      border: none;   
+      background:  rgb(239, 50, 116);
+      border-radius: 5px;
+      color: aliceblue;
+
+  }
+
+  .empty_box{
+    justify-content: center;
+    align-items: center;
+    background-color:rgb(239, 178, 201);
+    border: 2px solid rgb(245, 156, 187);
+  }
+ .empty_box img{
+  margin-left: 100px;
+  height: 150px;
+  width: 200px;
+ }
+ .empty_box p{
+  text-align: center;
+ }
+ .empty_box button{
+  background-color: #fc2779;
+margin-bottom: 12px;
+margin-left: 100px;
+width: 180px;
+color: aliceblue;
+font-size: 20px;
+font-weight: 600;
+ }
+ #f_para{
+  color: black;
+  font-size: 23px;
+  font-weight: 700;
+ }
+ #s_para{
+  color: black;
+  font-size: 17px;
+  font-weight: 400;
+ }
