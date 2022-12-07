@@ -9,7 +9,10 @@
     <link rel="stylesheet" href="./signPage.css">
 
     <style>
-       
+         #inner_div{
+            height: fit-content;
+            width:300px;
+         }
         #inner_div p{
             padding-bottom: 0px;
             font-size: 20px;
@@ -25,7 +28,7 @@
             margin: 10px 5px;
         }
         .inpt button{
-            margin-top: 160px;
+            margin-top: 70px;
         }
     </style>
 </head>
@@ -36,13 +39,79 @@
             <p>  LOGIN / REGISTER </p>
             <hr/>
             <div class="inpt">
-            <input type="text"  placeholder="Enter Phone Number Or Email" id="num_email" required>
-            <!-- <input type="password" placeholder="Password" id="pswrd" required> -->
+                <form action="#">
+            <input type="text" class="form-control" placeholder="Enter Your FirstName" id="fname" required>
+            <input type="text" class="form-control" placeholder="Enter Your LastName" id="lname" required>
+            <input type="tel" class="form-control" id="number"  placeholder=" Enter Phone Number"  pattern="[0-9]{10}" required>
+            <input type="email" class="form-control" id="email"  placeholder=" Enter  Email" required>
+            <input type="password" class="form-control" id="password"  placeholder=" password"  required>
+            <!-- <label for="">DOB</label> -->
+            <input type="text" id="dob" required placeholder="Date of Birth  (pattern 15-04-2002)" >
+        </form>
+            <!-- dkjasdhkaw -->
+            <!-- <input type="text" class="form-control" placeholder="Enter Phone Number Or Email" id="num_email" required> -->
             <br/>
-            <button onclick="location.href = './sign_in_page.html';" type="submit"> Proceed</button>
+            <button class="btn" id="btn"  type="submit" onclick="proceed_to_sign(),location.href='./sign_in_page.html';"> Proceed</button>
         </div>
         </div>
     </div>
    
+    <script>
+
+        function proceed_to_sign() {
+            let fname = document.getElementById("fname").value;
+            let lname = document.getElementById("lname").value;
+            let phone_number = document.getElementById("number").value;
+            let email = document.getElementById("email").value;
+            let paswrd = document.getElementById("password").value;
+            let dob = document.getElementById("dob").value;
+
+            const user_details_obj = {
+                user_fname: fname,
+                user_lname: lname,
+                user_phone_number: phone_number,
+                user_email: email,
+                user_pswrd: paswrd,
+                user_dob: dob,
+            }
+            var local_data =JSON.parse(localStorage.getItem("user_details")) ;
+            // var user_obj = []
+
+            user_obj.push(user_details_obj)
+            localStorage.setItem("user_details", JSON.stringify(user_obj))
+
+        }
+
+    </script>
+
+    <!-- <script>
+
+            document.getElementById("btn").addEventListener("click",function(event){
+                let fname = document.getElementById("fname").value;
+            let lname = document.getElementById("lname").value;
+            let phone_number = document.getElementById("number").value;
+            let email = document.getElementById("email").value;
+            let paswrd = document.getElementById("password").value;
+            let dob = document.getElementById("dob").value;
+                event.preventDefault();
+                location.href = "./sign_in_page.html";
+            })
+            const user_details_obj = {
+                user_fname: fname,
+                user_lname: lname,
+                user_phone_number: phone_number,
+                user_email: email,
+                user_pswrd: paswrd,
+                user_dob: dob,
+                // user_gender: gender
+            }
+            var local_data =JSON.parse(localStorage.getItem("user_details")) ;
+            var user_obj = []
+            user_obj.push(user_details_obj)
+            localStorage.setItem("user_details", JSON.stringify(user_obj))
+
+        
+
+    </script> -->
 </body>
 </html>

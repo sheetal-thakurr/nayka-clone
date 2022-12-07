@@ -66,9 +66,8 @@
 
  }
  .second-ul-div ul li{
-   display: inline;
+   display:inline-block;
    padding-left: 25px;
-   
 
  }
  .second-ul-div ul:first-child{
@@ -88,7 +87,7 @@
 
 
  .second-ul-div ul li input{
-    width: 21%;
+    width: 100%;
     padding: 8px;
     padding-left: 10px;
     border-radius: 5px;
@@ -256,6 +255,9 @@ padding-left: 15px;
   margin: 10px;
   /* border-radius: 10px; */
 }
+.s-img div:hover{
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
 
 .tci{
   height: 250px;
@@ -279,11 +281,11 @@ padding-left: 15px;
   border-radius: 10px;
   cursor: pointer;
 }
-.m-img img:hover{
-  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 22%);
-  height: 210px;
-  width: 210px;
+.m-img div:hover{
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
 }
+
 .iff{
   color: rgb(0, 19, 37);
     font-size: 28px;
@@ -337,6 +339,7 @@ text-align: center;
 
 }
 .info-div input{
+  width: 60%;
   background-color: rgb(63, 65, 77);
   border: 2px solid  rgb(63, 65, 77);
   color: rgb(255, 255, 255);
@@ -345,7 +348,9 @@ text-align: center;
 .info-div button{
   background-color: rgb(63, 65, 77);
   color: rgb(255, 255, 255);
-  width: 80px;
+  width: 25%;
+  margin-left: 50%;
+  /* margin-top: -80%; */
   font-size: 18px;
   font-weight: bold;
   border: 1px solid rgb(255, 255, 255);
