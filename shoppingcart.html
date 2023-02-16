@@ -1,88 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-       <!-- from Nykaa -->
-    <link rel="icon" href="//images-static.nykaa.com/media/favicon/default/nykaa_favicon_a.png" type="image/x-icon"/>
-   
-    <title>Buy Comsmetic Products & Beauty Products Online in India at Best Price | Nykaa</title>
-   
-    <link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Shopping Cart </title>
 
+    <link rel="icon" href="//images-static.nykaa.com/media/favicon/default/nykaa_favicon_a.png" type="image/x-icon" />
 
-   <!-- carousel link and script -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+   
+        <link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    
     <link rel="stylesheet" href="./style.css">
 
     <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
-   
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>  
+
+     
+
+    <script>
+
+      $(document).ready(function(){
+        var local_data =JSON.parse(localStorage.getItem("cart_data")) ;
+        var total_price = 0;
+        var product_count = 0;
+        local_data.forEach(element => {
+          total_price += parseInt(element.product_discount_price) * parseInt(element.product_quantity);
+          product_count += 1;
+        });
+       
+     
+        if(local_data !== null){
+          local_data.forEach(element => {
+           document.getElementById("empty_box").innerHTML="";
+            document.getElementById("product_item_detail").innerHTML += `
+            <div id="pro_img" class="d-flex about">
+            <div>
+                            <img src="${element.product_img}">
+                        </div>
+                      <div id="all_detail">
+                       
+                            <p id="pro_about">  ${element.product_description}</p>
+                               <p><strong>   Bag MRP - </strong><span id="pro_mrp">Rs. ${element.product_price}</span></p>
+                                <p><strong> Bag Discount- </strong><span class="discount spn"> ${element.product_discount_percenteage} %</span></p>
+                                <p><strong>Bag Discount price- </strong><span class="discount spn1">Rs. ${element.product_discount_price} </span></p>
+                                <p><strong> Shipping- </strong><span class=" spn2">Free  </span></p>
+                                <p><strong> Tatal Item- </strong><span class=" spn2">  ${element.product_quantity}</span></strong> </p>
+                            </div>
+                        </div> `;
+          });
+        }
+        document.getElementById("total_pay").innerHTML  = `Rs ${total_price} `;
+      document.getElementById("item_count").innerHTML+= `${product_count}`;
+      document.getElementById("totalitem").innerHTML+= `${product_count}`;
+
+      })
+      
+    </script>
 
 </head>
+
 <body>
-    <div class="container-fluid header ">
-        <div class="row  top-row ">
-        <div class="col-6 text-white headline ">Diwali  Dhamaka Sale Is Live - UP To 50% Off</div>
-           <div class="col-5 ul-div ">
-            <ul>
-                <li><a href="#"> 
-                  <!-- <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-app" viewBox="0 0 16 16">
-                  <path d="M11 2a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3V5a3 3 0 0 1 3-3h6zM5 1a4 4 0 0 0-4 4v6a4 4 0 0 0 4 4h6a4 4 0 0 0 4-4V5a4 4 0 0 0-4-4H5z"/>
-                </svg>  -->
-                🗄  Get App  </a></li>
-                <li><a href="#"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
-                  <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"/>
-                  <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-                </svg>Store & Events </a></li>
-                <li><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gift" viewBox="0 0 16 16">
-                  <path d="M3 2.5a2.5 2.5 0 0 1 5 0 2.5 2.5 0 0 1 5 0v.006c0 .07 0 .27-.038.494H15a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1v7.5a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 1 14.5V7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h2.038A2.968 2.968 0 0 1 3 2.506V2.5zm1.068.5H7v-.5a1.5 1.5 0 1 0-3 0c0 .085.002.274.045.43a.522.522 0 0 0 .023.07zM9 3h2.932a.56.56 0 0 0 .023-.07c.043-.156.045-.345.045-.43a1.5 1.5 0 0 0-3 0V3zM1 4v2h6V4H1zm8 0v2h6V4H9zm5 3H9v8h4.5a.5.5 0 0 0 .5-.5V7zm-7 8V7H2v7.5a.5.5 0 0 0 .5.5H7z"/>
-                </svg> Gift Cards </a></li>
-                <li><a href="#"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-question-circle" viewBox="0 0 16 16">
-                  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                  <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
-                </svg> Help </a></li>
-            </ul>
-           </div>
-        </div>
-        <div class="row  second-ul  ">
-            
+
+    <div class="container-fluid header">
+
+        <!-- header part -->
+        <!-- <div class="row  top-row">
+            <div class="col-6 text-white headline ">Diwali Dhamaka Sale Is Live - UP To 50% Off</div>
+            <div class="col-5 ul-div ">
+                <ul>
+                    <li><a href="#">
+                            🗄 Get App
+                        </a></li>
+                    <li><a href="#"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-geo-alt" viewBox="0 0 16 16">
+                                <path
+                                    d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z" />
+                                <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                            </svg>Store & Events </a></li>
+                    <li><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-gift" viewBox="0 0 16 16">
+                                <path
+                                    d="M3 2.5a2.5 2.5 0 0 1 5 0 2.5 2.5 0 0 1 5 0v.006c0 .07 0 .27-.038.494H15a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1v7.5a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 1 14.5V7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h2.038A2.968 2.968 0 0 1 3 2.506V2.5zm1.068.5H7v-.5a1.5 1.5 0 1 0-3 0c0 .085.002.274.045.43a.522.522 0 0 0 .023.07zM9 3h2.932a.56.56 0 0 0 .023-.07c.043-.156.045-.345.045-.43a1.5 1.5 0 0 0-3 0V3zM1 4v2h6V4H1zm8 0v2h6V4H9zm5 3H9v8h4.5a.5.5 0 0 0 .5-.5V7zm-7 8V7H2v7.5a.5.5 0 0 0 .5.5H7z" />
+                            </svg> Gift Cards </a></li>
+                    <li><a href="#"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-question-circle" viewBox="0 0 16 16">
+                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                <path
+                                    d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z" />
+                            </svg> Help </a></li>
+                </ul>
+            </div>
+        </div> -->
+        <div class="row  second-ul ">
+
             <div class="col-10 second-ul-div">
                 <ul>
-                    <li><a href="./nyka.html"><img src="./image/logo.png"></a></li>
+                    <li><a href="./index.html"><img src="./image/logo.png"></a></li>
                     <li><a href="#">Categories</a></li>
                     <li><a href="#">Brands</a></li>
                     <li><a href="#">Luxe</a></li>
                     <li><a href="#">Nykaa Fashion</a></li>
                     <li><a href="#">Beauty Advice</a></li>
-                    <li><input type="text" class="form-control" id="search_this" placeholder="Search on Nykaa " ></li>
+                    <li> <input type="search" placeholder="Search on Nykaa"></li>
                 </ul>
-               
+
             </div>
- 
+
             <div class="col-2 img-div">
-                <a href="./nyka_sign_in.html">
-                    <img src="./image/icone-utilisateur.png"> Account
-                    <!-- <button type="button" class="btn  sign_btn">Sign in</button> -->
+                <a href="#">
+                    <img src="./image/icone-utilisateur.png"> 
                 </a>
- 
-                <a href="./shoppingcart.html"><img src="./image/shopping-cart-black-icon-on-white-background-vector-31701008.jpg">               
+                <a href="./shoppingcart.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-handbag" viewBox="0 0 16 16">
+                  <path d="M8 1a2 2 0 0 1 2 2v2H6V3a2 2 0 0 1 2-2zm3 4V3a3 3 0 1 0-6 0v2H3.36a1.5 1.5 0 0 0-1.483 1.277L.85 13.13A2.5 2.5 0 0 0 3.322 16h9.355a2.5 2.5 0 0 0 2.473-2.87l-1.028-6.853A1.5 1.5 0 0 0 12.64 5H11zm-1 1v1.5a.5.5 0 0 0 1 0V6h1.639a.5.5 0 0 1 .494.426l1.028 6.851A1.5 1.5 0 0 1 12.678 15H3.322a1.5 1.5 0 0 1-1.483-1.723l1.028-6.851A.5.5 0 0 1 3.36 6H5v1.5a.5.5 0 1 0 1 0V6h4z"/>
+                </svg><span id="item_count"></span>
                 </a>
-
             </div>
-
-
         </div>
-        <div class="row  d-flex ">
+        <!-- <div class="row  d-flex ">
           <div class="col main-categories"> 
              <ul>
             <li id="list0"><a href="#">Makeup</a>
             <div class="outer-hidden-div row" id="visiblediv">
               <div class="hidden-div d-flex ">
-                <div class="hidden-data " >
+                <div class="hidden-data  ">
                   <ul>
                     <li><a href="./plp.html?cat_id=1&&sub_cat_id=101" target="_blank" style="color:#fc2779 ;">Face</a></li>            
                     <li>Concealer</li>
@@ -1306,566 +1349,207 @@
             </li>
 
         </ul></div>
-        </div>
-        
-       
-        <!-- carousel -->
-        <!-- <div class="row" style="height: 100px;">
-          <div class="col-12 " > -->
-            <div id="carouselExampleIndicators" class="carousel slide cc" data-bs-ride="carousel">
-              <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"> </button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"> </button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5" aria-label="Slide 6"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="6" aria-label="Slide 7"></button>
-              </div>
-              <div class="carousel-inner" >
-                <div class="carousel-item ">
-                  <img src="./image/23d0076e-a2de-4ffe-be35-8e14e5d9b55b.avif" class="d-block w-100" alt=" Festive-kurta">
-                </div>
-                <div class="carousel-item ">
-                  <img src="./image/74deb239-7f79-433f-9e91-07199d31c3bb.avif" class="d-block w-100" alt=" Festive-kurta">
-                </div>
-                <div class="carousel-item ">
-                  <img src="./image/cream.avif"class="d-block w-100" alt=" Festive-kurta">
-                </div>
-                <div class="carousel-item ">
-                  <img src="./image/murad.avif"  class="d-block w-100" alt=" Festive-kurta">
-                </div>
-                <div class="carousel-item">
-                  <img src="./image/ed2dd022-845d-4368-aff7-2400f6392514.avif" class="d-block w-100" alt="Breezy-Dresses"> 
-                </div>
-                <div class="carousel-item active">
-                  <img src="./image/nivea.avif" class="d-block w-100" alt="Health">
-                </div>
-                <div class="carousel-item">
-                  <img src="./image/yami.avif"class="d-block w-100" alt="Kitchen" >
-                </div>
-              </div>
-              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-              </button>
-              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-              </button>
-            </div>
-          <!-- </div>
         </div> -->
-    
-        <div class=" rose-div">
-          <div class="rose-img">
-            <img src="./image/rose.gif">
-          </div>
-          <div class="offer d-flex">
-            <img src="./image/699ee228-bce5-4e74-a4e2-77169f6e031e.avif">
-          </div>
-          <div class="offer d-flex ">
-            <img src="./image/coupons.avif">
-          </div>
 
-          <div class="txt">
-            <p >TOP BRANDS</p>
-          </div>
-          <div class="nykaa-img-div ">
-            <div class=" mid-img d-flex wrap">
-              <div>
-                <img src="./image/1st.avif">
-              </div>
-              <div>
-                <img src="./image/2nd.avif">
-              </div>
-              <div>
-                <img src="./image/3rd.avif">
-              </div>
-              <div>
-                <img src="./image/4rt.avif">
-              </div>
-              <div>
-                <img src="./image/5th.avif">
-              </div>
-              <div>
-                <img src="./image/6th.avif">
-              </div>
-              <div>
-                <img src="./image/7th.avif">
-              </div>
-              <div>
-                <img src="./image/8th.avif">
-              </div>
-             <div>
-                <img src="./image/9th.avif">
-             
+        <!-- main html start here -->
+
+        <div class="row bg-light">
+            <div class="col-9 main-box  ">
+                <div class="pro_div ">
+                    <div class="" >
+                      <div class="d-flex empty_box" id="empty_box">
+                        <div>
+                          <img src="./image/Shopping.png" alt="Bag" >
+                          <p id="f_para"> Your Shopping Bag Is Empty</p>
+                          <p id="s_para">This feels too light! Go on , add all your Favourites</p>
+                          <button type="button" class="btn"><a href="nyka.html" style="color: white;">Start Shopping</a></button>
+                        </div>
+                      </div>
+                      <div id ="product_item_detail">
+                       
+                      </div>
+                    </div>
+                </div>
             </div>
            
-           
-          </div>
+            <div class="col-3 main-box">
+            <div id="right">
+                <div class="pro_div ">
+                    <div class="right-para">
+                        <div id="r-txt" >
+                           <p><strong>Your Total  Pay- <span class=" r-spn" id="total_pay" ></span></strong><br/> 
+                           <strong>Your Total  Item- <span class=" r-spn " id="totalitem" ></span></strong></p> 
+                        </div>
+
+                        <div class="r-second ">
+                           <!-- <p> 🔘You are saving Rs<span class="discount">  150</span> on this order</p> -->
+                           <p id="shop"> Shopping At Nykaa And Get Discount At Every Products </p>
+                           </div>
+                        <div id="coupon">
+                            <p><strong>💌 &nbsp; Coupons</strong></p>
+                            <p><span >Apply Now And Save Extra!</span></p>
+                        </div>
+
+                        <div id="proceed">
+                            <button type="button"  onclick="location.href='./addressPage.html'">
+                                <!-- <a href="./addressPage.html">Proceed</a> -->Proceed
+                            </button>
+                        </div>
+                     
+                    </div>
+
+
+                </div>
+            </div>
+            </div>
         </div>
-      </div>
 
-        <!-- second carousel -->
-        <div id="carouselExampleIndicators" class="carousel slide aa" data-bs-ride="carousel">
-          <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-           
-          </div>
-          <div class="carousel-inner d-flex s-c">
-            <div class="carousel-item active">
-              <img src="./image/sss.avif" class="d-block w-80 " alt="...">
-            </div>
-            <div class="carousel-item">
-              <img src="./image/sheetal.avif" class="d-block w-80 " alt="...">
-            </div>
-            
-          </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
-        </div>
 
-        <div class="txt mt-5">
-          <p > ONLY AT NYKAA</p>
-        </div>
-        <div class="nykaa-img-div ">
-          <div class=" mid-img wrap d-flex">
-            <div>
-              <img src="./image/first.avif">
-
-            </div>
-            <div>
-              <img src="./image/second.avif">
-            </div>
-          <!-- </div> -->
-
-          <!-- <div class="  mid-img d-flex"> -->
-            <div>
-              <img src="./image/third.avif">
-            </div>
-            <div>
-              <img src="./image/forth.avif">
-            </div>
-          <!-- </div> -->
-
-      
-          </div>
-         </div>
-         <!-- owl carousel!--  --> 
-
-         
-         <!-- two or three things are pending here -->
-      
-         <div class="txt mt-5">
-          <p >FEATURED BRANDS</p>
-        </div>
-        <div class="nykaa-img-div ">
-          <div class=" mid-img wrap d-flex s-img">
-            <div>
-              <img src="./image/a.avif">
-            <!-- <p class="bg-white text-dark ">hello everyone</p> -->
-            </div>
-            <div>
-              <img src="./image/b.avif">
-            </div>
-            <div>
-              <img src="./image/c.avif">
-            </div>
-            <div>
-              <img src="./image/d.avif">
-            </div>
-          <!-- </div> -->
-
-          <!-- <div class=" mid-img d-flex s-img"> -->
-            <div>
-              <img src="./image/e.avif">
-            </div>
-            <div>
-              <img src="./image/f.avif">
-            </div>
-            <div>
-              <img src="./image/g.avif">
-            </div>
-            <div>
-              <img src="./image/h.avif">
-            </div>
-          <!-- </div> -->
-
-          <!-- <div class=" mid-img d-flex s-img"> -->
-            <div>
-              <img src="./image/i.avif">
-            </div>
-            <div>
-              <img src="./image/a.avif">
-            </div>
-          
-          <!-- </div> -->
-          </div>
-          </div>
-          <div class="txt mt-5">
-            <p > CATEGORY IN FOCUS</p>
-          </div>
-          <!-- third carousel -->
-
-          <div id="carouselExampleIndicators" class="carousel slide aa" data-bs-ride="carousel">
-            <div class="carousel-indicators">
-              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-             
-            </div>
-            <div class="carousel-inner d-flex s-c">
-              <div class="carousel-item active">
-                <img src="./image/ctgr1.avif" class="d-block w-70 tci" alt="...">
+         <!-- all footer part -->
+  
+         <div id="bg_footer">
+            <!-- <div class="info row   d-flex mt-10">
+              <div class="info-div  col-3">
+                <p><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope-open" viewBox="0 0 16 16">
+                  <path d="M8.47 1.318a1 1 0 0 0-.94 0l-6 3.2A1 1 0 0 0 1 5.4v.817l5.75 3.45L8 8.917l1.25.75L15 6.217V5.4a1 1 0 0 0-.53-.882l-6-3.2ZM15 7.383l-4.778 2.867L15 13.117V7.383Zm-.035 6.88L8 10.082l-6.965 4.18A1 1 0 0 0 2 15h12a1 1 0 0 0 .965-.738ZM1 13.116l4.778-2.867L1 7.383v5.734ZM7.059.435a2 2 0 0 1 1.882 0l6 3.2A2 2 0 0 1 16 5.4V14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V5.4a2 2 0 0 1 1.059-1.765l6-3.2Z"/>
+                </svg>Get special discount on your inbox</p>
+                <input type="email" placeholder="Your Email">
+                <button type="submit">Send</button>
               </div>
-              <div class="carousel-item">
-                <img src="./image/ctgr2.avif" class="d-block w-70 tci" alt="...">
+              <div class="info-div  col-3">
+                <p><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-app" viewBox="0 0 16 16">
+                  <path d="M11 2a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3V5a3 3 0 0 1 3-3h6zM5 1a4 4 0 0 0-4 4v6a4 4 0 0 0 4 4h6a4 4 0 0 0 4-4V5a4 4 0 0 0-4-4H5z"/>
+                </svg>  EXPERIENCE THE NYKAA MOBILE APP</p>
+               <div class="d-flex mid-img">
+                <div class="s-icon"><a href="./index.html"><img src="./image/google-play-download-android-app-logo-png-transparent.png"></a></div>
+                <div class="s-icon"><a href="./index.html"><img src="./image/5a902db97f96951c82922874.png"></a></div>
+               </div>
               </div>
+              <div  class="info-div col-4">
+                <p> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone" viewBox="0 0 16 16">
+                  <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
+                </svg> FOR ANY HELP YOU MAY CALL US AT<br> 1800-267-4444 <br><br>(Monday to Saturday, 8AM to 10PM and Sunday, 10AM to 7PM)</p>
+              </div>
+            </div> -->
+  
+            <!-- <div class="row d-flex  bottom-div">
+              <div class="col-2">
+                <ul>
+                  <li><a href="./index.html">NYKAA</a></li>
+                  <li><a href="./careerAtNykaa.html" target="_blank">Who are we?</a></li>
+                  <li><a href="./careerAtNykaa.html" target="_blank">Careees</a></li>
+                  <li><a href="#">Authenticity</a></li>
+                  <li><a href="#">Press</a></li>
+                  <li><a href="#">Testimonals</a></li>
+                  <li><a href="#">Nykaa CSR</a></li>
+                  <li><a href="#">Responsible Disclosure</a></li>
+                  <li><a href="#">Investor relation</a></li>
+                 
+                </ul>
+              </div>
+              <div class="col-2"> 
+                <ul>
+                  <li><a href="./contact.html" target="_blank">Help</a></li>
+                  <li><a href="./contact.html" target="_blank">Contact us</a></li>
+                  <li><a href="./contact.html" target="_blank">Frequently asked questions</a></li>
+                  <li><a href="#">store Locator</a></li>
+                  <li><a href="#">Cancellation & Return</a></li>
+                  <li><a href="#">Shipping & Delivery</a></li>
+                  <li><a href="#">Sell on Nykaa</a></li>
+                 
+                </ul>
+              </div>
+              <div class="col-2">
+                <ul>
+                  <li><a href="#">Inspire Me</a></li>
+                  <li><a href="#">Beauty Book</a></li>
+                  <li><a href="#">Nykaa TV</a></li>
+                  <li><a href="#">Nykaa Network</a></li>
+                  <li><a href="#">Buyimg Guides</a></li>
+                </ul>
+              </div>
+              <div class="col-2">
+                <ul>
+                  <li><a href="#">Quick Links</a></li>
+                  <li><a href="#">Offer Zone</a></li>
+                  <li><a href="#">New Launches</a></li>
+                  <li><a href="#">Nykaa Man</a></li>
+                  <li><a href="#">Nykaa Fashion </a></li>
+                  <li><a href="#">Nykaa Pro</a></li>
+                  <li><a href="#">Nykaa femina beauty awards winners 2022</a></li>
+                  <li><a href="#">Sitemap</a></li>
+                 
+                </ul>
+              </div>
+              <div class="col-2">
+                <ul>
+                  <li><a href="#">Top Categories</a></li>
+                  <li><a href="#">Makeup</a></li>
+                  <li><a href="#">Skin</a></li>
+                  <li><a href="#">Hair</a></li>
+                  <li><a href="#">Personal Care</a></li>
+                  <li><a href="#">Appliances</a></li>
+                  <li><a href="#">Mom and Baby</a></li>
+                  <li><a href="#">Wellness</a></li>
+                  <li><a href="#">Fragrance</a></li>
+                  <li><a href="#">Natura</a></li>
+                  <li><a href="#">Luxe</a></li>
+                  
+                </ul>
+              </div>
+            </div> -->
+
+
+            <div class="row d-flex   icon-div">
+              <div class="col-2">
+                <img src="./image/Free-shipping.svg">
+                <span>FREE SHIPPING</span>
+                <hr>
+                On Orders Above Rs. 499
+              </div>
+              <div class="col-2">
+                <img src="./image/return_accepted.svg">
+                <span>EASY RETURNS</span>
+                <hr>
+                <p>15-Day Return Policy</p>
+              </div>
+              <div class="col-2">
+                <img src="./image/Authenticity.svg">
+                <span>100% AUTHENTIC</span>
+                <hr>
+                <p>Products Sourced Directly </p>
+              </div>
+              <div class="col-2">
+                <img src="./image/Brands.svg">
+                <span>2400+ BRANDS</span>
+                <hr>
+                <p>1.9 Lakh+ Products</p>
+              </div>
+              <div class="col-2 social-icon">
+                <p>Show us more love 🖤 on social media </p>
+               <a href="#">
+                    <img src="./image/social-icon.jpg">   </a>       
               
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
-          </div>
-
-          <div class="mt-3">
-            <p class="mh-txt"> BRANDS YOU CAN'T MISS</p>
-          </div>
-
-          <div>
-            <p class="b-heading"> Luxe </p>
-          </div>
-          <div class="nykaa-img-div ">
-            <div class=" mid-img d-flex m-img wrap">
-              <div>
-                <img src="./image/m1.avif">
-              </div>
-              <div>
-                <img src="./image/m2.avif">
-              </div>
-              <div>
-                <img src="./image/m3.avif">
-              </div>
-              <div>
-                <img src="./image/m4.avif">
-              </div>
-              <div>
-                <img src="./image/m5.avif">
-              </div>
-              <div>
-                <img src="./image/m6.avif">
               </div>
             </div>
   
-            </div>
-
-            <div class="mt-15">
-              <p class="b-heading"> Skin </p>
-            </div>
-            <div class="nykaa-img-div ">
-              <div class=" mid-img d-flex m-img wrap">
-                <div>
-                  <img src="./image/m11.avif">
-                </div>
-                <div>
-                  <img src="./image/m12.avif">
-                </div>
-                <div>
-                  <img src="./image/m13.avif">
-                </div>
-                <div>
-                  <img src="./image/m14.avif">
-                </div>
-                <div>
-                  <img src="./image/m15.avif">
-                </div>
-                <div>
-                  <img src="./image/m6.avif">
-                </div>
-              </div>
-    
-              </div>
-
-              <div class="mt-15">
-                <p class="b-heading"> Global Faves </p>
-              </div>
-              <div class="nykaa-img-div ">
-                <div class=" mid-img d-flex m-img wrap">
-                  <div>
-                    <img src="./image/q1.avif">
-                  </div>
-                  <div>
-                    <img src="./image/q2.avif">
-                  </div>
-                  <div>
-                    <img src="./image/q3.avif">
-                  </div>
-                  <div>
-                    <img src="./image/q4.avif">
-                  </div>
-                  <div>
-                    <img src="./image/q5.avif">
-                  </div>
-                  <div>
-                    <img src="./image/m6.avif">
-                  </div>
-                </div>
-      
-                </div>
-
-                <div class="txt mt-5">
-                  <p class="iff"> Influencer's Festive Favourites</p>
-                </div>
-                <div class="nykaa-img-div ">
-                  <div class=" mid-img d-flex g-img wrap">
-                    <div>
-                      <img src="./image/g1.avif">
-                      <p class="g-txt"><b>Jovita's</b><br>
-                      Luxe Diwali Splurge</p>
-                    </div>
-                    <div>
-                      <img src="./image/g2.avif">
-                      <p class="g-txt"><b>Ritika Amru's</b><br>
-                     Budget Festive Faves Under 1299</p>
-                    </div>
-                    <div>
-                      <img src="./image/g3.avif">
-                      <p class="g-txt"><b>Srishti Bhatia's</b><br>
-                     Firecracker Makeup Look</p>
-                    </div>
-                    <div>
-                      <img src="./image/g4.avif">
-                      <p class="g-txt"><b>Tarini...</b><br>
-                      Festive Glow Essential</p>
-                    </div>
-                    <div>
-                  </div>
-        
-                  </div>
-                </div>
-                  <div class="txt mt-2">
-                    <p >  EDITOR'S CHOISE</p>
-                  </div>
-
-                   <div class="nykaa-img-div ">
-          <div class=" mid-img d-flex edt-img wrap">
-            <div>
-              <img src="./image/edt1.avif">
-            </div>
-            <div>
-              <img src="./image/edt2.avif">
-            </div>
-            <div>
-              <img src="./image/edt3.avif">
-            </div>
-            <div>
-              <img src="./image/edt4.avif">
-            </div>
-          </div>
-          </div>
-
-          <div class="txt m-10">
-            <p >GIFT CARD </p>
-          </div>
-          <div class="nykaa-img-div ">
-            <div class=" mid-img d-flex ">
-                <img src="./image/gift.avif">
-            </div>
-          </div>
-          <div class="nykaa-img-div ">
-            <div class=" mid-img d-flex shopnow">
-                <img src="./image/shopnow.avif">
-            </div>
-          </div>
-          <div class="nykaa-img-div ">
-            <div class=" mid-img d-flex shopnow">
-                <img src="./image/playnow.avif">
-            </div>
-          </div>
-          <div class="txt ">
-            <p > SPECIAL CURATION</p>
-          </div>
-          <div class="nykaa-img-div ">
-            <div class=" mid-img d-flex wrap">
-              <div>
-                <img src="./image/spc1.avif">
+            <div class="row footer">
   
-              </div>
-              <div>
-                <img src="./image/spc2.gif">
-              </div>
-            </div>
-  
-            <div class="txt">
-              <p > BEAUTY ADVICE</p>
-            </div>
-
-            <div class="  mid-img d-flex wrap">
-              <div>
-                <img src="./image/beauty1.avif">
-              </div>
-              <div>
-                <img src="./image/beauty2.avif">
-              </div>
-            </div>
-  
-        
-            </div>
-          <div class="nykaa-img-div ">
-            <div class=" mid-img d-flex shopnow">
-                <img src="./image/carefull.avif">
-            </div>
-          </div>
-
-          <div class="info row   d-flex mt-10 ">
-            <div class="info-div  col-3">
-              <p><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope-open" viewBox="0 0 16 16">
-                <path d="M8.47 1.318a1 1 0 0 0-.94 0l-6 3.2A1 1 0 0 0 1 5.4v.817l5.75 3.45L8 8.917l1.25.75L15 6.217V5.4a1 1 0 0 0-.53-.882l-6-3.2ZM15 7.383l-4.778 2.867L15 13.117V7.383Zm-.035 6.88L8 10.082l-6.965 4.18A1 1 0 0 0 2 15h12a1 1 0 0 0 .965-.738ZM1 13.116l4.778-2.867L1 7.383v5.734ZM7.059.435a2 2 0 0 1 1.882 0l6 3.2A2 2 0 0 1 16 5.4V14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V5.4a2 2 0 0 1 1.059-1.765l6-3.2Z"/>
-              </svg>&nbsp; Get special discount on your inbox</p>
-              <input type="email" class="form-control"  placeholder="Your Email">
-            <button type="submit" class="btn">Send</button>
-            </div>
-            <div class="info-div  col-3">
-              <p><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-app" viewBox="0 0 16 16">
-                <path d="M11 2a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3V5a3 3 0 0 1 3-3h6zM5 1a4 4 0 0 0-4 4v6a4 4 0 0 0 4 4h6a4 4 0 0 0 4-4V5a4 4 0 0 0-4-4H5z"/>
-              </svg>  EXPERIENCE THE NYKAA MOBILE APP</p>
              <div class="d-flex mid-img">
-              <div class="s-icon"><a href="./nyka.html"><img src="./image/google-play-download-android-app-logo-png-transparent.png"></a></div>
-              <div class="s-icon"><a href="./nyka.html"><img src="./image/5a902db97f96951c82922874.png"></a></div>
+              <a  href="">Terms & Condition</a>
+              <a  href="">Shipping Policy</a>
+              <a  href="">Cancellation Policy</a>
+              <a  href="">Privacy Policy</a>
              </div>
-            </div>
-            <div  class="info-div col-4">
-              <p> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone" viewBox="0 0 16 16">
-                <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
-              </svg> FOR ANY HELP YOU MAY CALL US AT<br> 1800-267-4444 <br><br>(Monday to Saturday, 8AM to 10PM and Sunday, 10AM to 7PM)</p>
-            </div>
+           <p>@ 2022 Nykaa E-Retail Pvt. All Rights Reserved</p>
           </div>
-
-          <div class="row d-flex  bottom-div">
-            <div class="col-2">
-              <ul>
-                <li><a href="./nyka.html">NYKAA</a></li>
-                <li><a href="./careerAtNykaa.html" target="_blank">Who are we?</a></li>
-                <li><a href="./careerAtNykaa.html" target="_blank">Careees</a></li>
-                <li><a href="#">Authenticity</a></li>
-                <li><a href="#">Press</a></li>
-                <li><a href="#">Testimonals</a></li>
-                <li><a href="#">Nykaa CSR</a></li>
-                <li><a href="#">Responsible Disclosure</a></li>
-                <li><a href="#">Investor relation</a></li>
-               
-              </ul>
-            </div>
-            <div class="col-2">
-              <ul>
-                <li><a href="./contact.html" target="_blank">Help</a></li>
-                <li><a href="./contact.html" target="_blank">Contact us</a></li>
-                <li><a href="./contact.html" target="_blank">Frequently asked questions</a></li>
-                <li><a href="#">store Locator</a></li>
-                <li><a href="#">Cancellation & Return</a></li>
-                <li><a href="#">Shipping & Delivery</a></li>
-                <li><a href="#">Sell on Nykaa</a></li>
-               
-              </ul>
-            </div>
-            <div class="col-2">
-              <ul>
-                <li><a href="#">Inspire Me</a></li>
-                <li><a href="#">Beauty Book</a></li>
-                <li><a href="#">Nykaa TV</a></li>
-                <li><a href="#">Nykaa Network</a></li>
-                <li><a href="#">Buyimg Guides</a></li>
-              </ul>
-            </div>
-            <div class="col-2">
-              <ul>
-                <li><a href="#">Quick Links</a></li>
-                <li><a href="#">Offer Zone</a></li>
-                <li><a href="#">New Launches</a></li>
-                <li><a href="#">Nykaa Man</a></li>
-                <li><a href="#">Nykaa Fashion </a></li>
-                <li><a href="#">Nykaa Pro</a></li>
-                <li><a href="#">Nykaa femina beauty awards winners 2022</a></li>
-                <li><a href="#">Sitemap</a></li>
-               
-              </ul>
-            </div>
-            <div class="col-2">
-              <ul>
-                <li><a href="#">Top Categories</a></li>
-                <li><a href="#">Makeup</a></li>
-                <li><a href="#">Skin</a></li>
-                <li><a href="#">Hair</a></li>
-                <li><a href="#">Personal Care</a></li>
-                <li><a href="#">Appliances</a></li>
-                <li><a href="#">Mom and Baby</a></li>
-                <li><a href="#">Wellness</a></li>
-                <li><a href="#">Fragrance</a></li>
-                <li><a href="#">Natura</a></li>
-                <li><a href="#">Luxe</a></li>
-                
-              </ul>
-            </div>
-          </div>
-          <div class="row d-flex icon-div">
-            <div class="col-2">
-              <img src="./image/Free-shipping.svg">
-              <span>FREE SHIPPING</span>
-              <hr>
-              On Orders Above Rs. 499
-            </div>
-            <div class="col-2">
-              <img src="./image/return_accepted.svg">
-              <span>EASY RETURNS</span>
-              <hr>
-              <p>15-Day Return Policy</p>
-            </div>
-            <div class="col-2">
-              <img src="./image/Authenticity.svg">
-              <span>100% AUTHENTIC</span>
-              <hr>
-              <p>Products Sourced Directly </p>
-            </div>
-            <div class="col-2">
-              <img src="./image/Brands.svg">
-              <span>2400+ BRANDS</span>
-              <hr>
-              <p>1.9 Lakh+ Products</p>
-            </div>
-            <div class="col-2 social-icon">
-              <p>Show us more love 🖤 on social media </p>
-             <a href="#">
-                  <img src="./image/social-icon.jpg">   </a>       
-            
-            </div>
-          </div>
-
-          <div class="row footer">
-
-           <div class="d-flex mid-img">
-            <a  href="">Terms & Condition</a>
-            <a  href="">Shipping Policy</a>
-            <a  href="">Cancellation Policy</a>
-            <a  href="">Privacy Policy</a>
            </div>
-         <p>@ 2022 Nykaa E-Retail Pvt. All Rights Reserved</p>
-        </div>
-          
+
+
+
     </div>
-   
-    <script src="./nyka.js"></script> 
-  
+
+    <script src="./nyka.js"></script>
 </body>
+
 </html>
